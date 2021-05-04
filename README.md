@@ -1,2 +1,3 @@
 # furkankapici.github.io
-Canlı ders sitesi
+Hoş geldin ama doğru yerde değilsin sanki
+https://furkankapici.github.io/index.html
