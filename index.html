@@ -1,360 +1,394 @@
+<!DOCTYPE html>
 <html>
 <head>
-<title>Canl&#305; Ders</title>
-<link rel="shortcut icon" href="favicon.ico" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-body {
-  padding: 25px;
-  background-color: white;
-  color: black;
-}
-.dark-mode {
-  background-color: black;
-  color: white;
-}
-</style>
-<script>
-function show(shown, hidden) {
-  document.getElementById(shown).style.display='block';
-  document.getElementById(hidden).style.display='none';
-  return false;
-}
-</script>
-        <meta charset="utf-8">
-        <style type="text/css">
-            body {
-              padding: 0;
-              margin: 0;
-            }
+<title>Soru Oluştur</title>
+    <style>
 
-            svg:not(:root) {
-              display: block;
-            }
-
-            .playable-code {
-              background-color: #f4f7f8;
-              border: none;
-              border-left: 6px solid #558abb;
-              border-width: medium medium medium 6px;
-              color: #4d4e53;
-              height: 100px;
-              width: 90%;
-              padding: 10px 10px 0;
-            }
-
-            .playable-canvas {
-              border: 1px solid #4d4e53;
-              border-radius: 2px;
-            }
-
-            .playable-buttons {
-              text-align: right;
-              width: 90%;
-              padding: 5px 10px 5px 26px;
-            }
-        </style>
+    </style>
+   <script type="text/javascript" src="kaynaklar/jquery-3.6.0.min.js"></script>
+   <script type="text/javascript" src="kaynaklar/soru1script.js"></script>
+   <script type="text/javascript" src="kaynaklar/soru2script.js"></script>
+   <script type="text/javascript" src="kaynaklar/soru3script.js"></script>
+   <script type="text/javascript" src="kaynaklar/genelscript.js"></script>
+   
+   <link rel="stylesheet" href="kaynaklar/style.css">
 </head>
 <body>
+    <div id="Soru1">
+	    <h1>1. Soru</h1>
+   <textarea cols="70" rows="10" type="text" id="field1"></textarea> <button id="soru1satir1" class="button" onclick="soru1ayar1()">1.satırı ayarla/güncelle</button>
+<button onclick="soru1satir1kalin()" class="button">Kalın yazmak için bana tıkla</button> <button onclick="soru1satir1cizili()" class="button">Altı çizili yazmak için bana tıkla</button>
+   <br>
+   <textarea cols="67" rows="1" type="text" id="field3"><br> </textarea> <button id="soru1satir2" class="button" onclick="soru1ayar2()">2.satırı ayarla/güncelle</button>  <button onclick="soru1satir2kalin()" class="button">Kalın yazmak için bana tıkla</button> <button onclick="soru1satir2cizili()" class="button">Altı çizili yazmak için bana tıkla</button>
+    <br>
+    <textarea cols="67" rows="1" type="text" id="field5"><br> </textarea> <button id="soru1satir3" class="button" onclick="soru1ayar3()">3.satırı ayarla/güncelle</button>  <button onclick="soru1satir3kalin()" class="button">Kalın yazmak için bana tıkla</button>  <button onclick="soru1satir3cizili()" class="button">Altı çizili yazmak için bana tıkla</button>
+    <br>
+    <textarea cols="67" rows="1" type="text" id="field7"><br> </textarea> <button id="soru1satir4" class="button" onclick="soru1ayar4()">4.satırı ayarla/güncelle</button>  <button onclick="soru1satir4kalin()" class="button">Kalın yazmak için bana tıkla</button> <button onclick="soru1satir4cizili()" class="button">Altı çizili yazmak için bana tıkla</button>
+    <br>
+    <textarea cols="67" rows="1" type="text" id="field9"><br> </textarea> <button id="soru1satir5" class="button" onclick="soru1ayar5()">5.satırı ayarla/güncelle</button>  <button onclick="soru1satir5kalin()" class="button">Kalın yazmak için bana tıkla</button> <button onclick="soru1satir5cizili()" class="button">Altı çizili yazmak için bana tıkla</button>
+    <br>
+    <textarea cols="67" rows="1" type="text" id="field11"><br> </textarea> <button id="soru1satir6" class="button" onclick="soru1ayar6()">6.satırı ayarla/güncelle</button>  <button onclick="soru1satir6kalin()" class="button">Kalın yazmak için bana tıkla</button> <button onclick="soru1satir6cizili()" class="button">Altı çizili yazmak için bana tıkla</button>
+    <br>
+    <textarea cols="67" rows="1" type="text" id="field13"><br> </textarea> <button id="soru1satir7" class="button" onclick="soru1ayar7()">7.satırı ayarla/güncelle</button>  <button onclick="soru1satir7kalin()" class="button">Kalın yazmak için bana tıkla</button> <button onclick="soru1satir7cizili()" class="button">Altı çizili yazmak için bana tıkla</button>
+    <br>
+    <textarea cols="67" rows="1" type="text" id="field15"><br> </textarea> <button id="soru1satir8" class="button" onclick="soru1ayar8()">8.satırı ayarla/güncelle</button>  <button onclick="soru1satir8kalin()" class="button">Kalın yazmak için bana tıkla</button> <button onclick="soru1satir8cizili()" class="button">Altı çizili yazmak için bana tıkla</button>
+    <br>
+    <textarea cols="67" rows="1" type="text" id="field17"><br> </textarea> <button id="soru1satir9" class="button" onclick="soru1ayar9()">9.satırı ayarla/güncelle</button>  <button onclick="soru1satir9kalin()" class="button">Kalın yazmak için bana tıkla</button> <button onclick="soru1satir9cizili()" class="button">Altı çizili yazmak için bana tıkla</button>
+    <br>
+    <textarea cols="67" rows="1" type="text" id="field19"><br> </textarea> <button id="soru1satir10" class="button" onclick="soru1ayar10()">10.satırı ayarla/güncelle</button>  <button onclick="soru1satir10kalin()" class="button">Kalın yazmak için bana tıkla</button> <button onclick="soru1satir10cizili()" class="button">Altı çizili yazmak için bana tıkla</button>
+        <input type="text" class="hidden" id="insert" value="<b>kalın yazı buraya</b>" />
+	<input type="text" class="hidden" id="insert2" value="<u>altı çizili yazı buraya</u>" />
+    <br>
+    <br>
+    <button href="#" class="button-34" onclick="return show('Soru1sik','Soru1');">Sonraki Adım</button>
+    <button onclick="copyToClipboard('sorujs')">panoya kopyala(yaptığın kodu soru js)</button>
+    </div>
+  
+  <div id="Soru1sik" style="display:none">
+  <h1>1.Soru şıkları</h1>
 
-  <div id="Page1">
-<h1><p>Haftal&#305;k Ders Program&#305;</p></h1>
-<table border="1" style="border-collapse: collapse; width: 100%; height: 50px;">
-<tr style="height: 40px;">
-<td style="width: 10%; height: 40px;"></td>
-<td style="width: 10%; height: 40px;"><p><strong>1<br>08:30</strong></p></td>
-<td style="width: 10%; height: 40px;"><p><strong>2<br>09:10</strong></p></td>
-<td style="width: 10%; height: 40px;"><p><strong>3<br>09:50</strong></p></td>
-<td style="width: 10%; height: 40px;"><p><strong>4<br>10:30</strong></p></td>
-<td style="width: 10%; height: 40px;"><p><strong>5<br>11:10</strong></p></td>
-<td style="width: 10%; height: 40px;"><p><strong>6<br>11:50</strong></p></td>
-<td style="width: 10%; height: 40px;"><p><strong>&#214;&#287;le Arası<br>12:30</strong></p></td>
-<td style="width: 10%; height: 40px;"><p><strong>7<br>13:00</strong></p></td>
-<td style="width: 10%; height: 40px;"><p><strong>8<br>13:40</strong></p></td>
-<td style="width: 10%; height: 40px;"><p><strong>9<br>14:20</strong></p></td>
-<td style="width: 10%; height: 40px;"><p><strong>10<br>15:00</strong></p></td>
-<td style="width: 10%; height: 40px;"><p><strong>11<br>15:40</strong></p></td>
-<td style="width: 10%; height: 40px;"><p><strong>12<br>16:20</strong></p></td>
-<td style="width: 10%; height: 40px;"><p><strong>13<br>17:00</strong></p></td>
-<td style="width: 10%; height: 40px;"><p><strong>14<br>17:40</strong></p></td>
-</tr>
-<tr style="height: 50px;">
-<td style="width: 10%; height: 50px;"><strong><p>Pazartesi</p></strong></td>
-<td style="width: 10%; height: 50px;"></td>
-<td style="width: 10%; height: 50px;"></td>
-<td style="width: 10%; height: 50px;"><p><a href="https://us04web.zoom.us/j/7872677205?pwd=RFpVQVovTmtHcWdZR2E2R0dTWXZXZz09" target="_blank" rel="noopener" title="Yabanc&#305; Dil">&#304;ngilizce</a></p></td>
-<td style="width: 10%; height: 50px;"><p><a href="https://us04web.zoom.us/j/7872677205?pwd=RFpVQVovTmtHcWdZR2E2R0dTWXZXZz09" target="_blank" rel="noopener" title="Yabanc&#305; Dil">&#304;ngilizce</a></p></td>
-<td style="width: 10%; height: 50px;"><p><a href="https://us04web.zoom.us/j/9649814530?pwd=Zm1zY1VLL3l1c2hpVWN4WURxbW9nUT09" target="_blank" rel="noopener" title="T&#252;rk&#231;e">T&#252;rk&#231;e</a></p></td>
-<td style="width: 10%; height: 50px;"><p><a href="https://us04web.zoom.us/j/5469235983?pwd=OXBRSG9uN3NaWkFTZGMyYWw1aHo2UT09" target="_blank" rel="noopener" title="Beden E&#287;itimi">Beden E.</a></td>
-<td style="width: 10%; height: 50px;"></td>
-<td style="width: 10%; height: 50px;"><p><a href="https://us04web.zoom.us/j/5469235983?pwd=OXBRSG9uN3NaWkFTZGMyYWw1aHo2UT09" target="_blank" rel="noopener" title="Beden E&#287;itimi">Beden E.</a></td>
-<td style="width: 10%; height: 50px;"><p><a href="https://us04web.zoom.us/j/3933285040?pwd=UXFEQVRqM0V6cU5jT2xBZjBZR3JVUT09" target="_blank" rel="noopener" title="Matematik">Matematik</a></p></td>
-<td style="width: 10%; height: 50px;"><p><a href="https://us04web.zoom.us/j/3933285040?pwd=UXFEQVRqM0V6cU5jT2xBZjBZR3JVUT09" target="_blank" rel="noopener" title="Matematik">Matematik</a></p></td>
-<td style="width: 10%; height: 50px;"></td>
-<td style="width: 10%; height: 50px;"></td>
-<td style="width: 10%; height: 50px;"></td>
-<td style="width: 10%; height: 50px;"></td>
-<td style="width: 10%; height: 50px;"></td>
-</tr>
-<tr style="height: 50px;">
-<td style="width: 10%; height: 50px;"><strong><p>Sal&#305;</p></strong></td>
-<td style="width: 10%; height: 50px;"></td>
-<td style="width: 10%; height: 50px;"></td>
-<td style="width: 10%; height: 50px;"><p><a href="https://us04web.zoom.us/j/9649814530?pwd=Zm1zY1VLL3l1c2hpVWN4WURxbW9nUT09" target="_blank" rel="noopener" title="T&#252;rk&#231;e">T&#252;rk&#231;e</a></p></td>
-<td style="width: 10%; height: 50px;"><p><a href="https://us04web.zoom.us/j/9649814530?pwd=Zm1zY1VLL3l1c2hpVWN4WURxbW9nUT09" target="_blank" rel="noopener" title="T&#252;rk&#231;e">T&#252;rk&#231;e</a></p></td>
-<td style="width: 10%; height: 50px;"><p><a href="https://us04web.zoom.us/j/2796038462?pwd=eXl2aGhCMy92VGptWCswbVVjbW1yQT09" target="_blank" rel="noopener" title="Din K&#252;lt&#252;r&#252; ve Ahlak Bilgisi">Din Bilgisi</a></p></td>
-<td style="width: 10%; height: 50px;"><p><a href="https://us04web.zoom.us/j/2796038462?pwd=eXl2aGhCMy92VGptWCswbVVjbW1yQT09" target="_blank" rel="noopener" title="Din K&#252;lt&#252;r&#252; ve Ahlak Bilgisi">Din Bilgisi</a></p></td>
-<td style="width: 10%; height: 50px;"></td>
-<td style="width: 10%; height: 50px;"><p><a href="https://us04web.zoom.us/j/3118760903?pwd=SER0dWk0YktGQWdrQW1xTjE5SHB2UT09" target="_blank" rel="noopener" title="Bilim Uygulamalar&#305;">Bilim Uyg.</a></p></td>
-<td style="width: 10%; height: 50px;"><p><a href="https://us04web.zoom.us/j/7872677205?pwd=RFpVQVovTmtHcWdZR2E2R0dTWXZXZz09" target="_blank" rel="noopener" title="Yabanc&#305; Dil">&#304;ngilizce</a></p></td>
-<td style="width: 10%; height: 50px;"><p><a href="https://us04web.zoom.us/j/7872677205?pwd=RFpVQVovTmtHcWdZR2E2R0dTWXZXZz09" target="_blank" rel="noopener" title="Yabanc&#305; Dil">&#304;ngilizce</a></p></td>
-<td style="width: 10%; height: 50px;"></td>
-<td style="width: 10%; height: 50px;"></td>
-<td style="width: 10%; height: 50px;"></td>
-<td style="width: 10%; height: 50px;"></td>
-<td style="width: 10%; height: 50px;"></td>
-</tr>
-<tr style="height: 50px;">
-<td style="width: 10%; height: 50px;"><strong><p>&#199;ar&#351;amba</p></strong></td>
-<td style="width: 10%; height: 50px;"></td>
-<td style="width: 10%; height: 50px;"></td>
-<td style="width: 10%; height: 50px;"><p><a href="#" onclick="return show('Page2','Page1');" title="Teknoloji Tasar&#305;m">Tek. Tas.</a></p></td>
-<td style="width: 10%; height: 50px;"><p><a href="#" onclick="return show('Page2','Page1');" title="Teknoloji Tasar&#305;m">Tek. Tas.</a></p></td>
-<td style="width: 10%; height: 50px;"><p><a href="https://us05web.zoom.us/j/5904724366?pwd=UWFSdnExeUNIVjdrTkxYZit0UmZUZz09" target="_blank" rel="noopener" title="Sosyal Bilgiler">Sosyal</a></p></td>
-<td style="width: 10%; height: 50px;"><p><a href="https://us05web.zoom.us/j/5904724366?pwd=UWFSdnExeUNIVjdrTkxYZit0UmZUZz09" target="_blank" rel="noopener" title="Sosyal Bilgiler">Sosyal</a></p></td>
-<td style="width: 10%; height: 50px;"></td>
-<td style="width: 10%; height: 50px;"><p><a href="https://us04web.zoom.us/j/5486398534?pwd=UUFzSzRoV242anpqVVA2MnVUaUNXZz09" target="_blank" rel="noopener" title="M&#252;zik">M&#252;zik</a></td>
-<td style="width: 10%; height: 50px;"><p><a href="https://us04web.zoom.us/j/3933285040?pwd=UXFEQVRqM0V6cU5jT2xBZjBZR3JVUT09" target="_blank" rel="noopener" title="Matematik">Matematik</a></p></td>
-<td style="width: 10%; height: 50px;"><p><a href="https://us04web.zoom.us/j/3933285040?pwd=UXFEQVRqM0V6cU5jT2xBZjBZR3JVUT09" target="_blank" rel="noopener" title="Matematik">Matematik</a></p></td>
-<td style="width: 10%; height: 50px;"></td>
-<td style="width: 10%; height: 50px;"></td>
-<td style="width: 10%; height: 50px;"></td>
-<td style="width: 10%; height: 50px;"></td>
-<td style="width: 10%; height: 50px;"></td>
-</tr>
-<tr style="height: 50px;">
-<td style="width: 10%; height: 50px;"><strong><p>Per&#351;embe</p></strong></td>
-<td style="width: 10%; height: 50px;"></td>
-<td style="width: 10%; height: 50px;"></td>
-<td style="width: 10%; height: 50px;"><p><a href="https://us04web.zoom.us/j/4701886167?pwd=SHpxcnpMMnVzTkhla25KZTU4dzFqUT09" target="_blank" rel="noopener" title="Fen Bilimleri">Fen Bilimleri</a></p></td>
-<td style="width: 10%; height: 50px;"><p><a href="https://us04web.zoom.us/j/4701886167?pwd=SHpxcnpMMnVzTkhla25KZTU4dzFqUT09" target="_blank" rel="noopener" title="Fen Bilimleri">Fen Bilimleri</a></p></td>
-<td style="width: 10%; height: 50px;"><p><a href="https://us04web.zoom.us/j/9649814530?pwd=Zm1zY1VLL3l1c2hpVWN4WURxbW9nUT09" target="_blank" rel="noopener" title="T&#252;rk&#231;e">T&#252;rk&#231;e</a></p></td>
-<td style="width: 10%; height: 50px;"><p><a href="https://us04web.zoom.us/j/9649814530?pwd=Zm1zY1VLL3l1c2hpVWN4WURxbW9nUT09" target="_blank" rel="noopener" title="T&#252;rk&#231;e">T&#252;rk&#231;e</a></p></td>
-<td style="width: 10%; height: 50px;"></td>
-<td style="width: 10%; height: 50px;"><p><a href="https://us04web.zoom.us/j/3933285040?pwd=UXFEQVRqM0V6cU5jT2xBZjBZR3JVUT09" target="_blank" rel="noopener" title="Matematik">Matematik</a></p></td>
-<td style="width: 10%; height: 50px;"><p><a href="https://us04web.zoom.us/j/3933285040?pwd=UXFEQVRqM0V6cU5jT2xBZjBZR3JVUT09" target="_blank" rel="noopener" title="Matematik">Matematik</a></p></td>
-<td style="width: 10%; height: 50px;"><p><a href="https://us04web.zoom.us/j/5094046966?pwd=ZC9ZeGd0V0Z3VlJRUU5nbEdWeTEzUT09" title="G&#246;rsel Sanatlar" target="_blank" rel="noopener">G&#246;rsel S.</a></td>
-<td style="width: 10%; height: 50px;"></td>
-<td style="width: 10%; height: 50px;"></td>
-<td style="width: 10%; height: 50px;"></td>
-<td style="width: 10%; height: 50px;"></td>
-<td style="width: 10%; height: 50px;"></td>
-</tr>
-<tr style="height: 50px;">
-<td style="width: 10%; height: 50px;"><strong><p>Cuma</p></strong></td>
-<td style="width: 10%; height: 50px;"></td>
-<td style="width: 10%; height: 50px;"></td>
-<td style="width: 10%; height: 50px;"><p><a href="https://us04web.zoom.us/j/3933285040?pwd=UXFEQVRqM0V6cU5jT2xBZjBZR3JVUT09" target="_blank" rel="noopener" title="Matematik">Matematik</a></p></td>
-<td style="width: 10%; height: 50px;"><p><a href="https://us05web.zoom.us/j/5904724366?pwd=UWFSdnExeUNIVjdrTkxYZit0UmZUZz09" target="_blank" rel="noopener" title="Sosyal Bilgiler">Sosyal</a></p></td>
-<td style="width: 10%; height: 50px;"><p><a href="https://us04web.zoom.us/j/4690728327?pwd=OU1DbkkxTEEweGdxWnMwQXladE5Udz09" target="_blank" rel="noopener" title="Zeka Oyunlar&#305;">Zeka Oyu.</a></p></td>
-<td style="width: 10%; height: 50px;"><p><a href="https://us04web.zoom.us/j/4690728327?pwd=OU1DbkkxTEEweGdxWnMwQXladE5Udz09" target="_blank" rel="noopener" title="Zeka Oyunlar&#305;">Zeka Oyu.</a></p></td>
-<td style="width: 10%; height: 50px;"></td>
-<td style="width: 10%; height: 50px;"><p><a href="https://us04web.zoom.us/j/4701886167?pwd=SHpxcnpMMnVzTkhla25KZTU4dzFqUT09" target="_blank" rel="noopener" title="Fen Bilimleri">Fen Bilimleri</a></p></td>
-<td style="width: 10%; height: 50px;"><p><a href="https://us04web.zoom.us/j/4701886167?pwd=SHpxcnpMMnVzTkhla25KZTU4dzFqUT09" target="_blank" rel="noopener" title="Fen Bilimleri">Fen Bilimleri</a></p></td>
-<td style="width: 10%; height: 50px;"><p><a href="https://us04web.zoom.us/j/3118760903?pwd=SER0dWk0YktGQWdrQW1xTjE5SHB2UT09" target="_blank" rel="noopener" title="Bilim Uygulamalar&#305;">Bilim Uyg.</a></p></td>
-<td style="width: 10%; height: 50px;"></td>
-<td style="width: 10%; height: 50px;"></td>
-<td style="width: 10%; height: 50px;"></td>
-<td style="width: 10%; height: 50px;"></td>
-<td style="width: 10%; height: 50px;"></td>
-</tr>
-<tr style="height: 18px;">
-<td style="width: 10%; height: 18px;"><strong><p>Cumartesi</p></strong></td>
-<td style="width: 10%; height: 18px;"></td>
-<td style="width: 10%; height: 18px;"></td>
-<td style="width: 10%; height: 18px;"></td>
-<td style="width: 10%; height: 18px;"></td>
-<td style="width: 10%; height: 18px;"></td>
-<td style="width: 10%; height: 18px;"></td>
-<td style="width: 10%; height: 18px;"></td>
-<td style="width: 10%; height: 18px;"></td>
-<td style="width: 10%; height: 18px;"></td>
-<td style="width: 10%; height: 18px;"></td>
-<td style="width: 10%; height: 18px;"></td>
-<td style="width: 10%; height: 18px;"></td>
-<td style="width: 10%; height: 18px;"></td>
-<td style="width: 10%; height: 18px;"></td>
-<td style="width: 10%; height: 18px;"></td>
-</tr>
-<tr style="height: 18px;">
-<td style="width: 10%; height: 18px;"><strong><p>Pazar</p></strong></td>
-<td style="width: 10%; height: 18px;"></td>
-<td style="width: 10%; height: 18px;"></td>
-<td style="width: 10%; height: 18px;"></td>
-<td style="width: 10%; height: 18px;"></td>
-<td style="width: 10%; height: 18px;"></td>
-<td style="width: 10%; height: 18px;"></td>
-<td style="width: 10%; height: 18px;"></td>
-<td style="width: 10%; height: 18px;"></td>
-<td style="width: 10%; height: 18px;"></td>
-<td style="width: 10%; height: 18px;"></td>
-<td style="width: 10%; height: 18px;"></td>
-<td style="width: 10%; height: 18px;"></td>
-<td style="width: 10%; height: 18px;"></td>
-<td style="width: 10%; height: 18px;"></td>
-<td style="width: 10%; height: 18px;"></td>
-</tr>
-</tbody>
-</table>
-</table>
-<p>Kat&#305;lmak istedi&#287;iniz derse t&#305;klay&#305;n.</p><br>
+<textarea cols="57" rows="1" type="text" id="field21">A)</textarea>  <button id="soru1sıkA" class="button" onclick="soru1sıkA()">A) şıkkını ayarla/güncelle</button>  <button id="soru1sıkdogrusıkA" class="button" onclick="soru1dogrusıkA()">Doğru şık olarak belirle</button> <button class="button" onclick="soru1Asikcizili()">Altı çizili yazmak için bana tıkla</button> <button class="button" onclick="soru1Asikkalin()">Kalın yazmak için bana tıkla</button>
 <br>
 <br>
-<br>     
+<textarea cols="57" rows="1" type="text" id="field23">B)</textarea>  <button id="soru1sıkB" class="button" onclick="soru1sıkB()">B) şıkkını ayarla/güncelle</button>  <button id="soru1sıkdogrusıkB" class="button" onclick="soru1dogrusıkB()">Doğru şık olarak belirle</button> <button class="button" onclick="soru1Bsikcizili()">Altı çizili yazmak için bana tıkla</button> <button class="button" onclick="soru1Bsikkalin()">Kalın yazmak için bana tıkla</button>
 <br>
 <br>
+<textarea cols="57" rows="1" type="text" id="field25">C)</textarea>  <button id="soru1sıkC" class="button" onclick="soru1sıkC()">C) şıkkını ayarla/güncelle</button>  <button id="soru1sıkdogrusıkC" class="button" onclick="soru1dogrusıkC()">Doğru şık olarak belirle</button> <button class="button" onclick="soru1Csikcizili()">Altı çizili yazmak için bana tıkla</button> <button class="button" onclick="soru1Csikkalin()">Kalın yazmak için bana tıkla</button>
 <br>
 <br>
+<textarea cols="57" rows="1" type="text" id="field27">D)</textarea> <button id="soru1sıkD" class="button" onclick="soru1sıkD()">D) şıkkını ayarla/güncelle</button>  <button id="soru1sıkdogrusıkD" class="button" onclick="soru1dogrusıkD()">Doğru şık olarak belirle</button> <button class="button" onclick="soru1Dsikcizili()">Altı çizili yazmak için bana tıkla</button> <button class="button" onclick="soru1Dsikkalin()">Kalın yazmak için bana tıkla</button>
 <br>
 <br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<a href="#" onclick="return show('Page3','Page1');">Oyunlar</a>
-<br>
-<br>
-<a href="#" onclick="return show('Page4','Page1');">Ki&#351;iselle&#351;tir</a>
-<br>
-<p><a href="https://giris.eba.gov.tr/EBA_GIRIS/student.jsp" target="_blank" rel="noopener" title="Eba'ya Giri&#351; yap">Eba</a></p>
-<p>Furkan Taraf&#305;ndan geli&#351;tirildi ve tasarland&#305;. Buradan kat&#305;ld&#305;&#287;&#305;n&#305;z veya kat&#305;lamad&#305;&#287;&#305;n&#305;z derslerden Furkan Kap&#305;c&#305; sorumlu de&#287;ildir. <br>G&#252;ncel 05.05.21 11:17</p>   
-  </div>  
-
-  <div id="Page2" style="display:none">
-<p>Kimin Dersine katılacaksın?</p>
-<p><a href="https://us04web.zoom.us/j/8239497870?pwd=U0E2S2pibUlHYjdNNjVKMVk3K0IrQT09" target="_blank" rel="noopener" title="Mehmet Mert Hoca">Mehmet Mert Hoca</a></p>
-<p><a href="https://us04web.zoom.us/j/6700147340?pwd=aDZxcFFobEhMZHpKeTQwcy81ZnQzUT09" target="_blank" rel="noopener" title="Havva Nur Hoca">Havva Nur Hoca</a></p>
-
-    <a href="#" onclick="return show('Page1','Page2');">Geri d&#246;n</a>
+<button href="#" class="button-34" onclick="return show('Soru1','Soru1sik');">Önceki Adım</button>
+<button href="#" class="button-34" onclick="return show('Soru2','Soru1sik');">Sonraki Adım</button> 
   </div>
+  
+    <div id="Soru2" style="display:none">
+	    <h1>2. Soru</h1>
+   <textarea cols="70" rows="10" type="text" id="field30"></textarea> <button id="soru2satir1" class="button" onclick="soru2ayar1()">1.satırı ayarla/güncelle</button>
+<button onclick="soru2satir1kalin()" class="button">Kalın yazmak için bana tıkla</button> <button onclick="soru2satir1cizili()" class="button">Altı çizili yazmak için bana tıkla</button>
+   <br>
+   <textarea cols="67" rows="1" type="text" id="field32"><br> </textarea> <button id="soru2satir2" class="button" onclick="soru2ayar2()">2.satırı ayarla/güncelle</button>  <button onclick="soru2satir2kalin()" class="button">Kalın yazmak için bana tıkla</button> <button onclick="soru2satir2cizili()" class="button">Altı çizili yazmak için bana tıkla</button>
+    <br>
+    <textarea cols="67" rows="1" type="text" id="field34"><br> </textarea> <button id="soru2satir3" class="button" onclick="soru2ayar3()">3.satırı ayarla/güncelle</button>  <button onclick="soru2satir3kalin()" class="button">Kalın yazmak için bana tıkla</button>  <button onclick="soru2satir3cizili()" class="button">Altı çizili yazmak için bana tıkla</button>
+    <br>
+    <textarea cols="67" rows="1" type="text" id="field36"><br> </textarea> <button id="soru2satir4" class="button" onclick="soru2ayar4()">4.satırı ayarla/güncelle</button>  <button onclick="soru2satir4kalin()" class="button">Kalın yazmak için bana tıkla</button> <button onclick="soru2satir4cizili()" class="button">Altı çizili yazmak için bana tıkla</button>
+    <br>
+    <textarea cols="67" rows="1" type="text" id="field38"><br> </textarea> <button id="soru2satir5" class="button" onclick="soru2ayar5()">5.satırı ayarla/güncelle</button>  <button onclick="soru2satir5kalin()" class="button">Kalın yazmak için bana tıkla</button> <button onclick="soru2satir5cizili()" class="button">Altı çizili yazmak için bana tıkla</button>
+    <br>
+    <textarea cols="67" rows="1" type="text" id="field40"><br> </textarea> <button id="soru2satir6" class="button" onclick="soru2ayar6()">6.satırı ayarla/güncelle</button>  <button onclick="soru2satir6kalin()" class="button">Kalın yazmak için bana tıkla</button> <button onclick="soru2satir6cizili()" class="button">Altı çizili yazmak için bana tıkla</button>
+    <br>
+    <textarea cols="67" rows="1" type="text" id="field42"><br> </textarea> <button id="soru2satir7" class="button" onclick="soru2ayar7()">7.satırı ayarla/güncelle</button>  <button onclick="soru2satir7kalin()" class="button">Kalın yazmak için bana tıkla</button> <button onclick="soru2satir7cizili()" class="button">Altı çizili yazmak için bana tıkla</button>
+    <br>
+    <textarea cols="67" rows="1" type="text" id="field44"><br> </textarea> <button id="soru2satir8" class="button" onclick="soru2ayar8()">8.satırı ayarla/güncelle</button>  <button onclick="soru2satir8kalin()" class="button">Kalın yazmak için bana tıkla</button> <button onclick="soru2satir8cizili()" class="button">Altı çizili yazmak için bana tıkla</button>
+    <br>
+    <textarea cols="67" rows="1" type="text" id="field46"><br> </textarea> <button id="soru2satir9" class="button" onclick="soru2ayar9()">9.satırı ayarla/güncelle</button>  <button onclick="soru2satir9kalin()" class="button">Kalın yazmak için bana tıkla</button> <button onclick="soru2satir9cizili()" class="button">Altı çizili yazmak için bana tıkla</button>
+    <br>
+    <textarea cols="67" rows="1" type="text" id="field48"><br> </textarea> <button id="soru2satir10" class="button" onclick="soru2ayar10()">10.satırı ayarla/güncelle</button>  <button onclick="soru2satir10kalin()" class="button">Kalın yazmak için bana tıkla</button> <button onclick="soru2satir10cizili()" class="button">Altı çizili yazmak için bana tıkla</button>
+        <input type="text" class="hidden" id="insert" value="<b>kalın yazı buraya</b>" />
+	<input type="text" class="hidden" id="insert2" value="<u>altı çizili yazı buraya</u>" />
+    <br>
+    <br>
+    <button href="#" class="button-34" onclick="return show('Soru1sik','Soru2');">Önceki Adım</button>
+    <button href="#" class="button-34" onclick="return show('Soru2sik','Soru2');">Sonraki Adım</button>
+    <button onclick="copyToClipboard('sorujs')">panoya kopyala(yaptığın kodu soru js)</button>
+    </div>
+  
+  <div id="Soru2sik" style="display:none">
+  <h1>2.Soru şıkları</h1>
 
- <div id="Page3" style="display:none">
-<p>Oyunlar:</p>
-<p><p>Super Mario</p>
-&nbsp;&nbsp;<iframe src="https://www.retrogames.cc/embed/21929-super-mario-bros-europe-rev-0a.html" width="600" height="450" frameborder="no" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" scrolling="no"></iframe>
+<textarea cols="57" rows="1" type="text" id="field50">A)</textarea>  <button id="soru2sıkA" class="button" onclick="soru2sıkA()">A) şıkkını ayarla/güncelle</button>  <button id="soru2sıkdogrusıkA" class="button" onclick="soru2dogrusıkA()">Doğru şık olarak belirle</button> <button class="button" onclick="soru2Asikcizili()">Altı çizili yazmak için bana tıkla</button> <button class="button" onclick="soru2Asikkalin()">Kalın yazmak için bana tıkla</button>
 <br>
-<p>Not: Oynamadan &#246;nce kontolleri ayarlay&#305;n</p>
-<p>Control options'a t&#305;klay&#305;n, oradan up yazan&#305; w ,down yazan&#305; a&#351;a&#287;&#305;, right yazan&#305; sa&#287; ,left yazan&#305; sol olarak ayarlay&#305;n.A tu&#351;unu ise yukar&#305; B tu&#351;unu B olarak ayarlay&#305;n.</p>
-<a href="#" onclick="return show('Page1','Page3');">Geri d&#246;n</a>
+<br>
+<textarea cols="57" rows="1" type="text" id="field52">B)</textarea>  <button id="soru2sıkB" class="button" onclick="soru2sıkB()">B) şıkkını ayarla/güncelle</button>  <button id="soru2sıkdogrusıkB" class="button" onclick="soru2dogrusıkB()">Doğru şık olarak belirle</button> <button class="button" onclick="soru2Bsikcizili()">Altı çizili yazmak için bana tıkla</button> <button class="button" onclick="soru2Bsikkalin()">Kalın yazmak için bana tıkla</button>
+<br>
+<br>
+<textarea cols="57" rows="1" type="text" id="field54">C)</textarea>  <button id="soru2sıkC" class="button" onclick="soru2sıkC()">C) şıkkını ayarla/güncelle</button>  <button id="soru2sıkdogrusıkC" class="button" onclick="soru2dogrusıkC()">Doğru şık olarak belirle</button> <button class="button" onclick="soru2Csikcizili()">Altı çizili yazmak için bana tıkla</button> <button class="button" onclick="soru2Csikkalin()">Kalın yazmak için bana tıkla</button>
+<br>
+<br>
+<textarea cols="57" rows="1" type="text" id="field56">D)</textarea> <button id="soru2sıkD" class="button" onclick="soru2sıkD()">D) şıkkını ayarla/güncelle</button>  <button id="soru2sıkdogrusıkD" class="button" onclick="soru2dogrusıkD()">Doğru şık olarak belirle</button> <button class="button" onclick="soru2Dsikcizili()">Altı çizili yazmak için bana tıkla</button> <button class="button" onclick="soru2Dsikkalin()">Kalın yazmak için bana tıkla</button>
+<br>
+<br>
+<button href="#" class="button-34" onclick="return show('Soru2','Soru2sik');">Önceki Adım</button>
+<button href="#" class="button-34" onclick="return show('Soru3','Soru2sik');">Sonraki Adım</button> 
   </div>
-<div id="Page4" style="display:none">
-<h2><p>Ki&#351;iselle&#351;tir</p></h2>
-<a href="#" onclick="return show('Page5','Page4');">Renk Ayarlar&#305;</a>
-<br>
-<br>
-<a href="#" onclick="return show('Page6','Page4');">Tema Ayarlar&#305;</a>
-<br>
-<br>
-<a href="#" onclick="return show('Page1','Page4');">Geri d&#246;n</a>
-</div>
+  
+     <div id="Soru3" style="display:none">
+ 	    <h1>3. Soru</h1>
+    <textarea cols="70" rows="10" type="text" id="3field1"></textarea> <button id="soru3satir1" class="button" onclick="soru3ayar1()">1.satırı ayarla/güncelle</button>
+ <button onclick="soru3satir1kalin()" class="button">Kalın yazmak için bana tıkla</button> <button onclick="soru3satir1cizili()" class="button">Altı çizili yazmak için bana tıkla</button>
+    <br>
+    <textarea cols="67" rows="1" type="text" id="3field3"><br> </textarea> <button id="soru3satir2" class="button" onclick="soru3ayar2()">2.satırı ayarla/güncelle</button>  <button onclick="soru3satir2kalin()" class="button">Kalın yazmak için bana tıkla</button> <button onclick="soru3satir2cizili()" class="button">Altı çizili yazmak için bana tıkla</button>
+     <br>
+     <textarea cols="67" rows="1" type="text" id="3field5"><br> </textarea> <button id="soru3satir3" class="button" onclick="soru3ayar3()">3.satırı ayarla/güncelle</button>  <button onclick="soru3satir3kalin()" class="button">Kalın yazmak için bana tıkla</button>  <button onclick="soru3satir3cizili()" class="button">Altı çizili yazmak için bana tıkla</button>
+     <br>
+     <textarea cols="67" rows="1" type="text" id="3field7"><br> </textarea> <button id="soru3satir4" class="button" onclick="soru3ayar4()">4.satırı ayarla/güncelle</button>  <button onclick="soru3satir4kalin()" class="button">Kalın yazmak için bana tıkla</button> <button onclick="soru3satir4cizili()" class="button">Altı çizili yazmak için bana tıkla</button>
+     <br>
+     <textarea cols="67" rows="1" type="text" id="3field9"><br> </textarea> <button id="soru3satir5" class="button" onclick="soru3ayar5()">5.satırı ayarla/güncelle</button>  <button onclick="soru3satir5kalin()" class="button">Kalın yazmak için bana tıkla</button> <button onclick="soru3satir5cizili()" class="button">Altı çizili yazmak için bana tıkla</button>
+     <br>
+     <textarea cols="67" rows="1" type="text" id="3field11"><br> </textarea> <button id="soru3satir6" class="button" onclick="soru3ayar6()">6.satırı ayarla/güncelle</button>  <button onclick="soru3satir6kalin()" class="button">Kalın yazmak için bana tıkla</button> <button onclick="soru3satir6cizili()" class="button">Altı çizili yazmak için bana tıkla</button>
+     <br>
+     <textarea cols="67" rows="1" type="text" id="3field13"><br> </textarea> <button id="soru3satir7" class="button" onclick="soru3ayar7()">7.satırı ayarla/güncelle</button>  <button onclick="soru3satir7kalin()" class="button">Kalın yazmak için bana tıkla</button> <button onclick="soru3satir7cizili()" class="button">Altı çizili yazmak için bana tıkla</button>
+     <br>
+     <textarea cols="67" rows="1" type="text" id="3field15"><br> </textarea> <button id="soru3satir8" class="button" onclick="soru3ayar8()">8.satırı ayarla/güncelle</button>  <button onclick="soru3satir8kalin()" class="button">Kalın yazmak için bana tıkla</button> <button onclick="soru3satir8cizili()" class="button">Altı çizili yazmak için bana tıkla</button>
+     <br>
+     <textarea cols="67" rows="1" type="text" id="3field17"><br> </textarea> <button id="soru3satir9" class="button" onclick="soru3ayar9()">9.satırı ayarla/güncelle</button>  <button onclick="soru3satir9kalin()" class="button">Kalın yazmak için bana tıkla</button> <button onclick="soru3satir9cizili()" class="button">Altı çizili yazmak için bana tıkla</button>
+     <br>
+     <textarea cols="67" rows="1" type="text" id="3field19"><br> </textarea> <button id="soru3satir10" class="button" onclick="soru3ayar10()">10.satırı ayarla/güncelle</button>  <button onclick="soru3satir10kalin()" class="button">Kalın yazmak için bana tıkla</button> <button onclick="soru3satir10cizili()" class="button">Altı çizili yazmak için bana tıkla</button>
+         <input type="text" class="hidden" id="insert" value="<b>kalın yazı buraya</b>" />
+ 	<input type="text" class="hidden" id="insert2" value="<u>altı çizili yazı buraya</u>" />
+     <br>
+     <br>
+     <button href="#" class="button-34" onclick="return show('Soru2sik','Soru3');">Önceki Adım</button>
+     <button href="#" class="button-34" onclick="return show('Soru3sik','Soru3');">Sonraki Adım</button>
+     <button onclick="copyToClipboard('sorujs')">panoya kopyala(yaptığın kodu soru js)</button>
+     </div>
+  
+   <div id="Soru3sik" style="display:none">
+   <h1>3.Soru şıkları</h1>
 
-<div id="Page5" style="display:none">
-<h2><p>Renk ayarlar&#305;</p></h2>
-
-<input type="color" value="#ff0000" id="colorWell">
-<br>
-<br>
-<p>Not:De&#287;i&#351;iklikler sadece bu sayfaya uygulan&#305;r ve e&#287;er sayfay&#305; yenilerseniz deği&#351;iklikler kaybolur.</p>
-<p>Not:Bu &#246;zellik baz&#305; taray&#305;c&#305;larda desteklenmeyebilir.</p>
-<p>Not:E&#287;er renk ayarlanmazsa tekrar rengi ayarla'ya t&#305;klay&#305;n ve renk imlecini hareket ettirip birka&#231; kez tekrar deneyin.</p>
-<br>
-<a href="#" onclick="return show('Page4','Page5');">Geri d&#246;n</a>
-</div>
-
-<div id="Page6" style="display:none">
-<h2><p>Siyah veya Beyaz Temaya Ge&#231;</p></h2>
-<p>Siyah veya Beyaz Temaya Ge&#231;mek i&#231;in Butona t&#305;kla</p>
-
-<button onclick="myFunction()">Temayı Değiştir</button>
-<script>
-function myFunction() {
-   var element = document.body;
-   element.classList.toggle("dark-mode");
-}
-</script>
-<p>Not:De&#287;i&#351;iklikler sadece bu sayfaya uygulan&#305;r ve e&#287;er sayfay&#305; yenilerseniz deği&#351;iklikler kaybolur.</p>
-<p>Not:Bu &#246;zellik baz&#305; taray&#305;c&#305;larda desteklenmeyebilir.</p>
-<a href="#" onclick="return show('Page4','Page6');">Geri d&#246;n</a>
-</div>
-            <script>
-                var colorWell;
-var defaultColor = "#0000ff";
-
-window.addEventListener("load", startup, false);
-
-function startup() {
-  colorWell = document.querySelector("#colorWell");
-  colorWell.value = defaultColor;
-  colorWell.addEventListener("input", updateFirst, false);
-  colorWell.addEventListener("change", updateAll, false);
-  colorWell.select();
-}
-
-function updateFirst(event) {
-  var p = document.querySelector("p");
-
-  if (p) {
-    p.style.color = event.target.value;
-  }
-}
-function updateAll(event) {
-  document.querySelectorAll("p").forEach(function(p) {
-    p.style.color = event.target.value;
-  });
-}
-
-            </script>
+ <textarea cols="67" rows="1" type="text" id="3field21">A)</textarea>  <button id="soru3sıkA" class="button" onclick="soru3sıkA()">A) şıkkını ayarla/güncelle</button>  <button id="soru3sıkdogrusıkA" class="button" onclick="soru3dogrusıkA()">Doğru şık olarak belirle</button> <button class="button" onclick="soru3Asikcizili()">Altı çizili yazmak için bana tıkla</button>
+ <br>
+ <br>
+ <textarea cols="67" rows="1" type="text" id="3field23">B)</textarea>  <button id="soru3sıkB" class="button" onclick="soru3sıkB()">B) şıkkını ayarla/güncelle</button>  <button id="soru3sıkdogrusıkB" class="button" onclick="soru3dogrusıkB()">Doğru şık olarak belirle</button> <button class="button" onclick="soru3Bsikcizili()">Altı çizili yazmak için bana tıkla</button>
+ <br>
+ <br>
+ <textarea cols="67" rows="1" type="text" id="3field25">C)</textarea>  <button id="soru3sıkC" class="button" onclick="soru3sıkC()">C) şıkkını ayarla/güncelle</button>  <button id="soru3sıkdogrusıkC" class="button" onclick="soru3dogrusıkC()">Doğru şık olarak belirle</button> <button class="button" onclick="soru3Csikcizili()">Altı çizili yazmak için bana tıkla</button>
+ <br>
+ <br>
+ <textarea cols="67" rows="1" type="text" id="3field27">D)</textarea> <button id="soru3sıkD" class="button" onclick="soru3sıkD()">D) şıkkını ayarla/güncelle</button>  <button id="soru3sıkdogrusıkD" class="button" onclick="soru3dogrusıkD()">Doğru şık olarak belirle</button> <button class="button" onclick="soru3Dsikcizili()">Altı çizili yazmak için bana tıkla</button>
+ <br>
+ <br>
+ <button href="#" class="button-34" onclick="return show('Soru3','Soru3sik');">Önceki Adım</button>
+ <button href="#" class="button-34" onclick="return show('Soru4','Soru3sik');">Sonraki Adım</button> 
+   </div>
+   
+   <div id="Soru4" style="display:none">
+   Hazırlanmadı
+   </div>
+<p id="sorujs">
+// creating an array and passing the number, questions, options, and answers<br>
+let questions = [<br>
+    {<br>
+    numb: 1,<br>
+    question: "<h id="field2"> </h><h id="field4"> </h><h id="field6"> </h><h id="field8"> </h><h id="field10"> </h><h id="field12"> </h><h id="field14"> </h><h id="field16"> </h><h id="field18"> </h><h id="field20"> </h>",<br>
+    answer: "<h id="field29"></h>",<br>
+    options: [<br>
+      "<h id="field22"></h>",<br>
+      "<h id="field24"></h>",<br>
+      "<h id="field26"></h>",<br>
+      "<h id="field28"></h>"<br>
+    ]<br>
+  },<br>
+    {<br>
+    numb: 2,<br>
+    question: "<h id="field31"> </h><h id="field33"> </h><h id="field35"> </h><h id="field37"> </h><h id="field39"> </h><h id="field41"> </h><h id="field43"> </h><h id="field45"> </h><h id="field47"> </h><h id="field49"> </h>",<br>
+    answer: "<h id="field58"></h>",<br>
+    options: [<br>
+      "<h id="field51"></h>",<br>
+      "<h id="field53"></h>",<br>
+      "<h id="field55"></h>",<br>
+      "<h id="field57"></h>",<br>
+    ]<br>
+  },<br>
+    {<br>
+    numb: 3,<br>
+    question: "<h id="3field2"> </h><h id="3field4"> </h><h id="3field6"> </h><h id="3field8"> </h><h id="3field10"> </h><h id="3field12"> </h><h id="3field14"> </h><h id="3field16"> </h><h id="3field18"> </h><h id="3field20"> </h>",<br>
+    answer: "<h id="3field29"></h>",<br>
+    options: [<br>
+      "<h id="3field22"></h>",<br>
+      "<h id="3field24"></h>",<br>
+      "<h id="3field26"></h>",<br>
+      "<h id="3field28"></h>"<br>
+    ]<br>
+  },<br>
+    {<br>
+    numb: 4<br>,
+    question: "",<br>
+    answer: "",<br>
+    options: [<br>
+      "",<br>
+      "",<br>
+      "",<br>
+      ""
+    ]<br>
+  },<br>
+    {<br>
+    numb: 5,<br>
+    question: "",<br>
+    answer: "",<br>
+    options: [<br>
+      "",<br>
+      "",<br>
+      "",<br>
+      ""<br>
+    ]<br>
+  },<br>
+   {<br>
+  numb: 6,<br>
+  question: "",<br>
+  answer: "",<br>
+  options: [<br>
+    "",<br>
+    "",<br>
+    "",<br>
+    ""<br>
+  ]<br>
+},<br>
+   {<br>
+  numb: 7,<br>
+  question: "",<br>
+  answer: "",<br>
+  options: [<br>
+    "",<br>
+    "",<br>
+    "",<br>
+    ""<br>
+  ]<br>
+},<br>
+   {<br>
+  numb: 8,<br>
+  question: "",<br>
+  answer: "",<br>
+  options: [<br>
+    "",<br>
+    "",<br>
+    "",<br>
+    ""<br>
+    ]<br>
+  },<br>
+  {<br>
+    numb: 9,<br>
+   question: "",<br>
+   answer: "",<br>
+   options: [<br>
+     "",<br>
+     "",<br>
+     "",<br>
+     ""<br>
+     ]<br>
+   },<br>
+   {<br>
+     numb: 10,<br>
+    question: "",<br>
+    answer: "",<br>
+    options: [<br>
+      "",<br>
+      "",<br>
+      "",<br>
+      ""<br>
+      ]<br>
+    },<br>
+    {
+      numb: 11,
+    question: "",<br>
+    answer: "",<br>
+    options: [<br>
+      "",<br>
+      "",<br>
+      "",<br>
+      ""<br>
+      ]<br>
+     },<br>
+     {
+       numb: 12,
+    question: "",<br>
+    answer: "",<br>
+    options: [<br>
+      "",<br>
+      "",<br>
+      "",<br>
+      ""<br>
+      ]<br>
+     },<br>
+      {
+        numb: 13,
+    question: "",<br>
+    answer: "",<br>
+    options: [<br>
+      "",<br>
+      "",<br>
+      "",<br>
+      ""<br>
+      ]<br>
+     },<br>
+       {
+      numb: 14,
+    question: "",<br>
+    answer: "",<br>
+    options: [<br>
+      "",<br>
+      "",<br>
+      "",<br>
+      ""<br>
+      ]<br>
+     },<br>
+	{
+      numb: 15,
+    question: "",<br>
+    answer: "",<br>
+    options: [<br>
+      "",<br>
+      "",<br>
+      "",<br>
+      ""<br>
+      ]<br>
+     },<br>
+	 {
+      numb: 16,
+    question: "",<br>
+    answer: "",<br>
+    options: [<br>
+      "",<br>
+      "",<br>
+      "",<br>
+      ""<br>
+      ]<br>
+     },<br> 
+	  {
+     numb: 17,
+    question: "",<br>
+    answer: "",<br>
+    options: [<br>
+      "",<br>
+      "",<br>
+      "",<br>
+      ""<br>
+      ]<br>
+     },<br>
+           {
+     numb: 18,
+    question: "",<br>
+    answer: "",<br>
+    options: [<br>
+      "",<br>
+      "",<br>
+      "",<br>
+      ""<br>
+      ]<br>
+     },<br>
+          {
+     numb: 19,
+    question: "",<br>
+    answer: "",<br>
+    options: [<br>
+      "",<br>
+      "",<br>
+      "",<br>
+      ""<br>
+      ]<br>
+     },<br>
+          {
+     numb: 20,
+    question: "",<br>
+    answer: "",<br>
+    options: [<br>
+      "",<br>
+      "",<br>
+      "",<br>
+      ""<br>
+      ]<br>
+     },<br>	
+</p>
 </body>
 </html>
