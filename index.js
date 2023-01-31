@@ -3,13 +3,14 @@
 window.onload = function() {
 	// Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCxL1dLnEbJqhh0pwAUfse8w1HXlQfNi-U",
-  authDomain: "bahcelios-8f2b2.firebaseapp.com",
-  projectId: "bahcelios-8f2b2",
-  storageBucket: "bahcelios-8f2b2.appspot.com",
-  messagingSenderId: "802978639212",
-  appId: "1:802978639212:web:1c61968b420fee2a821749",
-};
+ apiKey: "AIzaSyC9gOhrOyvuR4HRd1eaR5jHLj4AodM-_BM",
+ authDomain: "bahcelios-ff3d6.firebaseapp.com",
+ databaseURL: "https://bahcelios-ff3d6-default-rtdb.firebaseio.com",
+ projectId: "bahcelios-ff3d6",
+ storageBucket: "bahcelios-ff3d6.appspot.com",
+ messagingSenderId: "979668896354",
+ appId: "1:979668896354:web:1c9f6271a3d8bb632d5f3b",
+  };
  
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
