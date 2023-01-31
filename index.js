@@ -1,23 +1,16 @@
 // We enclose this in window.onload.
 // So we don't have ridiculous errors.
 window.onload = function() {
-   // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.16.0/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.16.0/firebase-analytics.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
-
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  const firebaseConfig = {
-    apiKey: "AIzaSyCxL1dLnEbJqhh0pwAUfse8w1HXlQfNi-U",
-    authDomain: "bahcelios-8f2b2.firebaseapp.com",
-    projectId: "bahcelios-8f2b2",
-    storageBucket: "bahcelios-8f2b2.appspot.com",
-    messagingSenderId: "802978639212",
-    appId: "1:802978639212:web:1c61968b420fee2a821749",
-    measurementId: "G-RTH1EZP2BM"
-  };
+	// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyCxL1dLnEbJqhh0pwAUfse8w1HXlQfNi-U",
+  authDomain: "bahcelios-8f2b2.firebaseapp.com",
+  projectId: "bahcelios-8f2b2",
+  storageBucket: "bahcelios-8f2b2.appspot.com",
+  messagingSenderId: "802978639212",
+  appId: "1:802978639212:web:1c61968b420fee2a821749",
+};
+ 
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
   // This is very IMPORTANT!! We're going to use "db" a lot.
