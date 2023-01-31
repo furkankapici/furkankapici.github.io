@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+<head>
+<style>
+#chatContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0 auto;
+  position: absolute;
+}
+
+#messages {
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  border: 1px solid black;
+}
+
+#input {
+  width: 80%;
+  height: 20px;
+  margin-bottom: 10px;
+}
+
+#submit {
+  width: 20%;
+  height: 30px;
+}
+
+#parent {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+</style>
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.16.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.16.0/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyBmpFU5-ZTdiewteITo0_xPKQae6_zZypA",
+    authDomain: "bahcelios.firebaseapp.com",
+    projectId: "bahcelios",
+    storageBucket: "bahcelios.appspot.com",
+    messagingSenderId: "314725161785",
+    appId: "1:314725161785:web:25712e3e90174beb54a6e8",
+    measurementId: "G-19DBJ277LM"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
+    <script>
+	
+window.onload = function() {
+  const chatContainer = document.getElementById("chatContainer");
+  const messages = document.getElementById("messages");
+  messages.scrollTop = messages.scrollHeight;
+  const input = document.getElementById("input");
+  const submit = document.getElementById("submit");
+
+  input.addEventListener("keydown", function(event) {
+    if (event.keyCode === 13) {
+      const message = input.value;
+      messages.innerHTML += "<br>" + message;
+      input.value = "";
+    }
+  });
+  
+submit.addEventListener("click", function() {
+const message = input.value;
+const newMessage = document.createElement("div");
+newMessage.innerText = message;
+messages.appendChild(newMessage);
+input.value = "";
+messages.scrollTop = messages.scrollHeight;
+});
+};
+
+    </script>
+</head>
+<body>
+<div id="chatContainer">
+  <div id="messages"></div>
+  <input type="text" id="input">
+  <button id="submit">Gönder</button>
+</div>
+</body>
+</html>
