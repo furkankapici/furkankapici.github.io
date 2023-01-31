@@ -154,7 +154,7 @@ const firebaseConfig = {
       // Only a max message length of 1000
       chat_input.setAttribute('maxlength', 1000)
       // Get the name of the user
-      chat_input.placeholder = `${parent.get_name()}. Bir Şeyler Söyle...`
+      chat_input.placeholder = `${parent.get_name()}. Bir Şeyler Yaz...`
       chat_input.onkeyup  = function(){
         if(chat_input.value.length > 0){
           chat_input_send.removeAttribute('disabled')
