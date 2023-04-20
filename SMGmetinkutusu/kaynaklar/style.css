@@ -8,10 +8,13 @@
 .kutucukmetin {
     position: absolute;
     top: 90px;
-    right: 42px;
+    right: 48px;
     font-size: 27px;
-    width: 694px;
-}	
+    max-width: 698px;
+	max-height: 113px;
+    word-wrap: break-word;
+    text-overflow: ellipsis;   
+}
 	
 .border {
  border-style:solid;
