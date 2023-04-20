@@ -14,18 +14,19 @@
 <body>
     <div id="Soru1">
 	    <h1>Satır ayarla</h1>
-   <textarea cols="70" rows="10" type="text" id="htmlmetin" style="width: 531px; height: 207px;"></textarea><br> 
+   <textarea cols="70" rows="10" type="text" id="messagexml"></textarea><br> 
 <button onclick="satirsiyah()" class="button">Siyah yazmak için bana tıkla</button> <button class="button" onclick="satirayar()">satırı ayarla/güncelle</button><br><br>
 <button onclick="satirkirmizi()" class="button">Kırmızı yazmak için bana tıkla</button>
    <br>
-    <input type="text" class="hidden" id="insert" value="<a style='color: black;'>deneme</a>" />
-	<input type="text" class="hidden" id="insert2" value="<a style='color: red;'>31</a>" />
+    <input type="text" class="hidden" id="insert" value='<font color="black"/>' />
+	<input type="text" class="hidden" id="insert2" value='<font color="red"/>' />
     <br>
     <br>
     <button onclick="copyToClipboard('cıktı')">panoya kopyala</button>
-	<button id="cıktı" onclick="donustur()"> yukarıdan aşağıya dönüştür</button>
+	
     </div>
-<textarea cols="70" rows="10" type="text" id="sonucKutusu"></textarea>
+<textarea cols="70" rows="10" type="text" id="htmlmetin" style="width: 531px; height: 207px; display: none;"></textarea><br>
+<button id="cıktı" style="display: none;" onclick="htmldenwiiyedonustur()"> Html'den xml'e dönüştür</button>
 <img class="kutucuk" src="kaynaklar/diyalogkutu.png"></img>
  
 <p id="sorujs" class="kutucukmetin">

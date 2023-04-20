@@ -1,21 +1,25 @@
 .kutucuk {
- position: absolute;
- top: 102px;
- right: 10px;
- width: 56%;
+	position: absolute;
+	top: 102px;
+	right: 10px;
+	width: 56%;
 }
 
 .kutucukmetin {
-  position: absolute;
-  top: 90px;
-  right: 45px;
-  font-size: 27px;
-  max-width: 698px;
-  max-height: 113px;
-  word-wrap: break-word;
-  text-overflow: ellipsis	
+    position: absolute;
+    top: 90px;
+    right: 46px;
+    font-size: 27px;
+	width: 698px;
+    max-width: 698px;
+    max-height: 113px;
+    word-wrap: break-word;
+    text-overflow: ellipsis;
+    text-align: left;
+    direction: ltr;
+    unicode-bidi: bidi-override;
 }
-	
+
 .border {
  border-style:solid;
  border-color:#ff0000;

@@ -16,32 +16,36 @@ return false;
 
 function satirsiyah() {
 var curPos =
-document.getElementById("htmlmetin").selectionStart;
+document.getElementById("messagexml").selectionStart;
 console.log(curPos);
-let x = $("#htmlmetin").val();
+let x = $("#messagexml").val();
 let text_to_insert = $("#insert").val();
-$("#htmlmetin").val(
+$("#messagexml").val(
 x.slice(0, curPos) + text_to_insert + x.slice(curPos));
             }
 
  function satirkirmizi() {
  var curPos =
- document.getElementById("htmlmetin").selectionStart;
+ document.getElementById("messagexml").selectionStart;
  console.log(curPos);
- let x = $("#htmlmetin").val();
+ let x = $("#messagexml").val();
  let text_to_insert = $("#insert2").val();
- $("#htmlmetin").val(
+ $("#messagexml").val(
  x.slice(0, curPos) + text_to_insert + x.slice(curPos));
              }	  
 
 	function satirayar() {
 var metinKutusu = document.getElementById("htmlmetin"); // metin kutusu elemanını al
-var sonucKutusu = document.getElementById("sorujs"); // sonuç kutusu elemanını al
+var messagexml = document.getElementById("sorujs"); // sonuç kutusu elemanını al
 var htmlKod = metinKutusu.value; // metin kutusundaki HTML kodunu al
-sonucKutusu.innerHTML = htmlKod; // HTML kodunu işle ve sonuç kutusuna yaz
+messagexml.innerHTML = htmlKod; // HTML kodunu işle ve sonuç kutusuna yaz
+var wiimetin = document.getElementById("messagexml").value;  // Metin kutusundan metni al
+// <font> etiketlerini <a> etiketlerine dönüştür
+var wii_html = wiimetin.replace(/<font color="red"\/?>/g, "</a><a style='color: red;'>").replace(/<font color="black"\/?>/g, "</a><a style='color: black;'>").replace(/\n/g, "<br>");
+document.getElementById("htmlmetin").value = wii_html; // Sonucu yeni bir metin kutusuna yaz
 }
 
-function donustur() {
+function htmldenwiiyedonustur() {
   // Metin kutusundan metni al
   var metin = document.getElementById("htmlmetin").value;
 
@@ -49,5 +53,6 @@ function donustur() {
   var yeniMetin = metin.replace(/<a style='color: red;'>/g, '<font color="red"/>').replace(/<\/a>/g, "").replace(/<a style='color: black;'>/g, '<font color="black"/>').replace(/<\/a>/g, "");
 
   // Sonucu yeni bir metin kutusuna yaz
-  document.getElementById("sonucKutusu").value = yeniMetin;
+  document.getElementById("messagexml").value = yeniMetin;
 }
+
