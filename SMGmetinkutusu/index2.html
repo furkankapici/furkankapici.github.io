@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>SMG kutu düzenleme</title>
+</head>
+<body>
+Çevirilecek dosya:<br>
+<textarea id="xmlgiris" rows="30" cols="100"></textarea>
+<textarea id="xmlciktiduzgun" rows="30" cols="75"></textarea><br>
+<textarea id="xmlcikti" rows="10" cols="60" oninput="CiktidanXmleDonustur()" style="display: none;"></textarea>
+<br>
+<button><</button><br><br><br><br><br><br><br><br><br><br><br><br>
+<textarea id="xml" rows="30" cols="60"></textarea>
+<script>
+//Xml ---> Metin
+//Xml dosyasını çevirme işlevi
+function XmliCiktiyaDonustur() { 
+    const xmlData = document.getElementById("xmlgiris").value;
+    const parser = new DOMParser();
+    const xmlDoc = parser.parseFromString(xmlData, "text/xml");
+    const stringElement = xmlDoc.getElementsByTagName("string")[0];
+    const stringContent = stringElement.innerHTML;
+    document.getElementById("xmlcikti").value = stringContent;
+}
+	
+// Xml'i metin yapmak için işlev tetikleyici
+    document.getElementById("xmlgiris").addEventListener("input", function() {
+    XmliCiktiyaDonustur();
+	CiktiBoslukTemizle();
+    });
+
+//Xml <----> Metin
+function CiktiBoslukTemizle() {
+    const inputText = document.getElementById("xmlcikti").value;
+    const trimmedText = inputText.replace(/\t/g, '').trim();
+    document.getElementById("xmlciktiduzgun").value = trimmedText;
+}
+
+//Metin ---> Xml
+// Veri girdisini XML formatına dönüştür
+function CiktidanXmleDonustur() {
+    const xmlData = document.getElementById("xmlgiris").value;
+    const data = document.getElementById("xmlcikti").value;
+    const parser = new DOMParser();
+    const xmlDoc = parser.parseFromString(xmlData, "text/xml");
+    const stringElement = xmlDoc.getElementsByTagName("string")[0];
+    stringElement.textContent = data;
+    const serializer = new XMLSerializer();
+    const updatedXmlData = serializer.serializeToString(xmlDoc);
+    document.getElementById("xmlgiris").value = updatedXmlData;
+    }
+
+function BosluklariGeriAl() {
+    const inputText = document.getElementById("xmlciktiduzgun").value;
+    const lines = inputText.split("\n");
+    lines.unshift(""); // Başlangıçta boş bir satır ekle
+    const indentedLines = lines.map(line => `\t\t${line}`); // Her satırın başına 2 tab karakteri ekle  
+    indentedLines.push("\t"); // Sonunda 1 tabdan oluşan bir satır ekle
+    const formattedText = indentedLines.join("\n");
+    document.getElementById("xmlcikti").value = formattedText;
+}
+
+// Metini xml yapmak için işlev tetikleyici
+document.getElementById("xmlciktiduzgun").addEventListener("input", function() {
+    BosluklariGeriAl();
+    CiktidanXmleDonustur();
+});
+
+</script>
+</body>
+</html>
