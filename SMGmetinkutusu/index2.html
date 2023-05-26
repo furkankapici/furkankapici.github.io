@@ -4,7 +4,7 @@
 <style>
 .kodmenu {
   height: 100%;
-  width: 0;
+  width: 100%;
   position: fixed;
   z-index: 1;
   top: 0;
@@ -47,22 +47,32 @@
 <body>
 <div id="KodMenusu" class="kodmenu">
 <a href="javascript:void(0)" class="closebtn" onclick="KodMenusunuKapat()">×</a>
-<h3>Üzerinde çalışacağınız kod:</h3>
+<h2>Üzerinde çalışacağınız kod:</h2>
 <textarea id="xmlMetin" rows="13" cols="170" placeholder="Üzerinde çalışmak istdiğiniz kodu buraya yapıştırın."></textarea>
 <h2>Üzerinde çalıştığınız kod:</h2>
 <textarea id="XmlTamamlanan" rows="13" cols="170" placeholder="Tamamladığınız kod blokları burada gözükecektir."></textarea>
 </div>
-
+<div style="display: none;"><div id="kukla" style="display: none;"></div></div>
+<div id="anasayfa" style="display: block;">
 <button onclick="KodMenusunuAc()">Kod menüsünü aç</button>
-<button>Nasıl kullanılır?</button>
+<button onclick="GizleGoster('anasayfa', 'nasilkullanilir')">Nasıl kullanılır?</button>
+<button id="kodblogunugizle" style="display: ;" onclick="IkiGizleIkiGoster('kodblogunugizle', 'uzerindecalisilan', 'kodblogunugöster', 'kukla')">Üzerinde çalıştığım bloğu gizle</button>
+<button id="kodblogunugöster" style="display: none;" onclick="IkiGizleIkiGoster('kodblogunugöster', 'kukla', 'kodblogunugizle', 'uzerindecalisilan')">Üzerinde çalıştığım bloğu göster</button>
 
+<div id="uzerindecalisilan">
 <h2>Üzerinde çalıştığınız kod bloğu:</h2><br>
 <textarea id="XmlKodBlogu" rows="25" cols="100"></textarea>
+</div>
 <br>
 <h2>Çevirilecek metin:</h2>
 <textarea id="xmlciktiduzgun" rows="15" cols="100"></textarea><br>
 <textarea id="xmlcikti" rows="10" cols="60" oninput="CiktidanXmlParcasinaDonustur()" style="display: none;"></textarea>
 <button id="sonrakimesaj">&gt;</button><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</div>
+
+<div id="nasilkullanilir" style="display: none;">
+<button onclick="toggleVisibility('nasilkullanilir', 'anasayfa')">Nasıl kullanılır?</button>
+</div>
 <script>
 //Girilen Kodları bölerek metin kutusuna aktarır
 //Girilen bütün kodu kod parçacığı olarak içe aktarır
@@ -133,10 +143,10 @@ function CiktidanXmlParcasinaDonustur() {
     const parser = new DOMParser();
     const xmlDoc = parser.parseFromString(xmlData, "text/xml");
     const stringElement = xmlDoc.getElementsByTagName("string")[0];
-    stringElement.textContent = data;
-	const content = stringElement.textContent;
+    stringElement.innerHTML = data;
+	const content = stringElement.innerHTML;
     const modifiedContent = content.replace(/ş/g, "ã").replace(/ı/g, "õ").replace(/ğ/g, "ä").replace(/Ş/g, "Ñ").replace(/Ğ/g, "Õ").replace(/İ/g, "Ã").replace(/Ç/g, "ñ");
-    stringElement.textContent = modifiedContent;
+    stringElement.innerHTML = modifiedContent;
     const serializer = new XMLSerializer();
     const updatedXmlData = serializer.serializeToString(xmlDoc);
     document.getElementById("XmlKodBlogu").value = updatedXmlData;
@@ -165,6 +175,20 @@ function KodMenusunuAc() {
 
 function KodMenusunuKapat() {
   document.getElementById("KodMenusu").style.width = "0";
+}
+
+//Sayfa öğelerini gösterme/gizleme
+function GizleGoster(hideId, showId) {
+  document.getElementById(hideId).style.display = 'none';
+  document.getElementById(showId).style.display = 'block';
+}
+
+//2 sayfa öğesini gizle göster
+function IkiGizleIkiGoster(hideId, hideId2, showId, showId2) {
+  document.getElementById(hideId).style.display = 'none';
+  document.getElementById(hideId2).style.display = 'none';
+  document.getElementById(showId).style.display = '';
+  document.getElementById(showId2).style.display = '';
 }
 
 </script>
