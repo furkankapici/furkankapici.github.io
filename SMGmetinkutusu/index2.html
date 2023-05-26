@@ -1,21 +1,110 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style>
+.kodmenu {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #fbfbfb;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.kodmenu a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #000;
+  display: block;
+  transition: 0.3s;
+}
+
+.kodmenu a:hover {
+  color: #4a4a4a;
+}
+
+.kodmenu .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+/*450 pixelden daha küçük ekranlarda da içeriğin düzgün görünmesi için yapılandırma*/
+@media screen and (max-height: 450px) {
+  .kodmenu {padding-top: 15px;}
+  .kodmenu a {font-size: 18px;}
+}
+</style>
 <title>SMG kutu düzenleme</title>
 </head>
 <body>
-Çevirilecek dosya:<br>
-<textarea id="xmlgiris" rows="30" cols="100"></textarea>
-<textarea id="xmlciktiduzgun" rows="30" cols="75"></textarea><br>
-<textarea id="xmlcikti" rows="10" cols="60" oninput="CiktidanXmleDonustur()" style="display: none;"></textarea>
+<div id="KodMenusu" class="kodmenu">
+<a href="javascript:void(0)" class="closebtn" onclick="KodMenusunuKapat()">×</a>
+<h3>Üzerinde çalışacağınız kod:</h3>
+<textarea id="xmlMetin" rows="13" cols="170" placeholder="Üzerinde çalışmak istdiğiniz kodu buraya yapıştırın."></textarea>
+<h2>Üzerinde çalıştığınız kod:</h2>
+<textarea id="XmlTamamlanan" rows="13" cols="170" placeholder="Tamamladığınız kod blokları burada gözükecektir."></textarea>
+</div>
+
+<button onclick="KodMenusunuAc()">Kod menüsünü aç</button>
+<button>Nasıl kullanılır?</button>
+
+<h2>Üzerinde çalıştığınız kod bloğu:</h2><br>
+<textarea id="XmlKodBlogu" rows="25" cols="100"></textarea>
 <br>
-<button><</button><br><br><br><br><br><br><br><br><br><br><br><br>
-<textarea id="xml" rows="30" cols="60"></textarea>
+<h2>Çevirilecek metin:</h2>
+<textarea id="xmlciktiduzgun" rows="15" cols="100"></textarea><br>
+<textarea id="xmlcikti" rows="10" cols="60" oninput="CiktidanXmlParcasinaDonustur()" style="display: none;"></textarea>
+<button id="sonrakimesaj">&gt;</button><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <script>
+//Girilen Kodları bölerek metin kutusuna aktarır
+//Girilen bütün kodu kod parçacığı olarak içe aktarır
+function Aktar() {
+    var xmlMetin = document.getElementById("xmlMetin").value.trim();
+    var aktarilanMetin = "";
+    // İlk message etiketini bulma ve içeriğini aktarma
+    var baslangicIndex = xmlMetin.indexOf("<message");
+    var sonIndex = xmlMetin.indexOf("</message>", baslangicIndex) + 10;
+    aktarilanMetin = xmlMetin.substring(baslangicIndex, sonIndex);
+    document.getElementById("XmlKodBlogu").value = aktarilanMetin;
+    // İlk message etiketini silme
+    xmlMetin = xmlMetin.substring(0, baslangicIndex) + xmlMetin.substring(sonIndex);
+    document.getElementById("xmlMetin").value = xmlMetin.trim();
+}
+
+//Üzerinde çalışılacak olan kodu içe aktaran event listener
+document.getElementById("xmlMetin").addEventListener("input", function() {
+    Aktar();
+    XmlParcasiniCiktiyaDonustur();
+	CiktiBoslukTemizle();
+});
+
+//Bir sonraki mesaja geçme işlevi
+function BloguDisaAktar() {
+    var ikinciMetin = document.getElementById("XmlKodBlogu").value;
+    var ucuncuMetin = document.getElementById("XmlTamamlanan").value;
+    document.getElementById("XmlTamamlanan").value = ucuncuMetin + ikinciMetin + "\n";
+}
+
+//Sonraki Tuşunun İşlevleri
+document.getElementById("sonrakimesaj").addEventListener("click", function() {
+    BloguDisaAktar();
+	Aktar();
+	XmlParcasiniCiktiyaDonustur();
+	CiktiBoslukTemizle();
+});
+
 //Xml ---> Metin
 //Xml dosyasını çevirme işlevi
-function XmliCiktiyaDonustur() { 
-    const xmlData = document.getElementById("xmlgiris").value;
+function XmlParcasiniCiktiyaDonustur() { 
+    const xmlData = document.getElementById("XmlKodBlogu").value;
     const parser = new DOMParser();
     const xmlDoc = parser.parseFromString(xmlData, "text/xml");
     const stringElement = xmlDoc.getElementsByTagName("string")[0];
@@ -24,8 +113,8 @@ function XmliCiktiyaDonustur() {
 }
 	
 // Xml'i metin yapmak için işlev tetikleyici
-    document.getElementById("xmlgiris").addEventListener("input", function() {
-    XmliCiktiyaDonustur();
+    document.getElementById("XmlKodBlogu").addEventListener("input", function() {
+    XmlParcasiniCiktiyaDonustur();
 	CiktiBoslukTemizle();
     });
 
@@ -38,16 +127,19 @@ function CiktiBoslukTemizle() {
 
 //Metin ---> Xml
 // Veri girdisini XML formatına dönüştür
-function CiktidanXmleDonustur() {
-    const xmlData = document.getElementById("xmlgiris").value;
+function CiktidanXmlParcasinaDonustur() {
+    const xmlData = document.getElementById("XmlKodBlogu").value;
     const data = document.getElementById("xmlcikti").value;
     const parser = new DOMParser();
     const xmlDoc = parser.parseFromString(xmlData, "text/xml");
     const stringElement = xmlDoc.getElementsByTagName("string")[0];
     stringElement.textContent = data;
+	const content = stringElement.textContent;
+    const modifiedContent = content.replace(/ş/g, "ã").replace(/ı/g, "õ").replace(/ğ/g, "ä").replace(/Ş/g, "Ñ").replace(/Ğ/g, "Õ").replace(/İ/g, "Ã").replace(/Ç/g, "ñ");
+    stringElement.textContent = modifiedContent;
     const serializer = new XMLSerializer();
     const updatedXmlData = serializer.serializeToString(xmlDoc);
-    document.getElementById("xmlgiris").value = updatedXmlData;
+    document.getElementById("XmlKodBlogu").value = updatedXmlData;
     }
 
 function BosluklariGeriAl() {
@@ -63,8 +155,17 @@ function BosluklariGeriAl() {
 // Metini xml yapmak için işlev tetikleyici
 document.getElementById("xmlciktiduzgun").addEventListener("input", function() {
     BosluklariGeriAl();
-    CiktidanXmleDonustur();
+    CiktidanXmlParcasinaDonustur();
 });
+
+//yan menüyü açıp kapamak için yapılandırma
+function KodMenusunuAc() {
+  document.getElementById("KodMenusu").style.width = "100%";
+}
+
+function KodMenusunuKapat() {
+  document.getElementById("KodMenusu").style.width = "0";
+}
 
 </script>
 </body>
