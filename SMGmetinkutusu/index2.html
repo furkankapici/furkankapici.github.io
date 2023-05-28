@@ -13,6 +13,7 @@
   overflow-x: hidden;
   transition: 0.5s;
   padding-top: 60px;
+  z-index: 2;
 }
 
 .kodmenu a {
@@ -40,6 +41,15 @@
 @media screen and (max-height: 450px) {
   .kodmenu {padding-top: 15px;}
   .kodmenu a {font-size: 18px;}
+}
+
+.sınırcizgisi {
+  position: absolute;
+  left: 480px;
+  width: 100px;
+  height: 250px;
+  background-color: #ff0000a3;
+  z-index: 1;
 }
 </style>
 <title>SMG kutu düzenleme</title>
@@ -75,6 +85,7 @@
 	
 	<button id="sonrakimesaj">&gt;</button><br><br>
 	
+	<div class="sınırcizgisi"></div>
 	<p id="uzunluk" style="position: absolute; left: 0px;"></p>
 </div>
 
