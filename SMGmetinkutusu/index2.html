@@ -63,18 +63,22 @@
 
 	<h2>Üzerinde çalıştığınız kod:</h2>
 	<textarea id="XmlTamamlanan" rows="13" cols="170" placeholder="Tamamladığınız kod blokları burada gözükecektir."></textarea>
-	<textarea id="deneme" rows="13" cols="170" placeholder="Deneme."></textarea>
 	
 </div>
-<div style="display: none;"><div id="kukla" style="display: none;"></div></div>
 
+<div id="DisaAktarMenu" style="display:none;">
+	<button src="#" onclick="GizleGoster('DisaAktarMenu','anasayfa')" style="position: absolute; right:1%; top:1%;">Geri dön</button>
+	<h2>Dışa aktarılan kodlar:</h2>
+	<textarea id="DisaAktarilmisKod" rows="40" cols="170" placeholder="N'oldu hiçbirşey yapmadın mı?" style="position: absolute; top: 11%; height: 80%;"></textarea>
+</div>
+
+<div style="display: none;"><div id="kukla" style="display: none;"></div></div>
 <div id="anasayfa" style="display: block;">
 	<button onclick="KodMenusunuAc()">Kod menüsünü aç</button>
 	<button id="kodblogunugizle" style="display: ;" onclick="IkiGizleIkiGoster('kodblogunugizle', 'uzerindecalisilan', 'kodblogunugöster', 'kukla')">Üzerinde çalıştığım bloğu gizle</button>
 	<button id="kodblogunugöster" style="display: none;" onclick="IkiGizleIkiGoster('kodblogunugöster', 'kukla', 'kodblogunugizle', 'uzerindecalisilan')">Üzerinde çalıştığım bloğu göster</button>
 	<button onclick="DisaAktar()">Dışa Aktar</button>
 	<button onclick="GizleGoster('anasayfa', 'nasilkullanilir')">Yardım</button>
-	<button onclick="XmlParcasiniCiktiyaDonustur()">dneme</button>
 	<div id="uzerindecalisilan">
 	<h2>Üzerinde çalıştığınız kod bloğu:</h2><br>
 	<textarea id="XmlKodBlogu" rows="25" cols="100"></textarea>
@@ -123,8 +127,10 @@ function DisaAktar() {
 	var UzerindeCalisilacakKod = document.getElementById("xmlMetin").value;
 	var UzerindeCalisilanKod = document.getElementById("XmlKodBlogu").value;
 	var UzerindeCalisilmisKod = document.getElementById("XmlTamamlanan").value;
-	var DisaAktarilanKodlar = UzerindeCalisilacakKod + UzerindeCalisilanKod + UzerindeCalisilmisKod;
-	document.getElementById("deneme").value = DisaAktarilanKodlar;
+	var DisaAktarilanKodlar = UzerindeCalisilmisKod + UzerindeCalisilanKod + UzerindeCalisilacakKod;
+	document.getElementById("DisaAktarilmisKod").value = DisaAktarilanKodlar;
+	document.getElementById("anasayfa").style.display = 'none';
+	document.getElementById("DisaAktarMenu").style.display = 'block';
 }
 
 //Xml ---> Metin
