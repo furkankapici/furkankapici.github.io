@@ -1,37 +1,253 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
-<title>Metin Düzenleme</title>
-    <style>
+<style>
+.kodmenu {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #fbfbfb;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+  z-index: 2;
+}
 
-    </style>
-   <script type="text/javascript" src="kaynaklar/jquery-3.6.0.min.js"></script>
-   <script type="text/javascript" src="kaynaklar/script.js"></script>
-   
-   <link rel="stylesheet" href="kaynaklar/style.css">
+.kodmenu a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #000;
+  display: block;
+  transition: 0.3s;
+}
+
+.kodmenu a:hover {
+  color: #4a4a4a;
+}
+
+.kodmenu .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+/*450 pixelden daha küçük ekranlarda da içeriğin düzgün görünmesi için yapılandırma*/
+@media screen and (max-height: 450px) {
+  .kodmenu {padding-top: 15px;}
+  .kodmenu a {font-size: 18px;}
+}
+
+.sinircizgisi {
+  position: absolute;
+  left: 480px;
+  width: 100px;
+  height: 250px;
+  background-color: #ff0000a3;
+  z-index: 1;
+}
+</style>
+<title>SMG kutu düzenleme</title>
 </head>
 <body>
-    <div id="Soru1">
-	    <h1>Satır ayarla</h1>
-   <textarea cols="70" rows="10" type="text" id="messagexml"></textarea><br> 
-<button onclick="satirsiyah()" class="button">Siyah yazmak için bana tıkla</button> <button class="button" onclick="satirayar()">satırı ayarla/güncelle</button><br><br>
-<button onclick="satirkirmizi()" class="button">Kırmızı yazmak için bana tıkla</button>
-   <br>
-    <input type="text" class="hidden" id="insert" value='<font color="black"/>' />
-	<input type="text" class="hidden" id="insert2" value='<font color="red"/>' />
-    <br>
-    <br>
-    <button onclick="copyToClipboard('cıktı')">panoya kopyala</button>
+<div id="KodMenusu" class="kodmenu">
+	<a href="javascript:void(0)" class="closebtn" onclick="KodMenusunuKapat()">×</a>
 	
-    </div>
-<textarea cols="70" rows="10" type="text" id="htmlmetin" style="width: 531px; height: 207px; display: none;"></textarea><br>
-<button id="cıktı" style="display: none;" onclick="htmldenwiiyedonustur()"> Html'den xml'e dönüştür</button>
-<img class="kutucuk" src="kaynaklar/diyalogkutu.png"></img>
- 
-<p id="sorujs" class="kutucukmetin">
-<h id="field2"> </h>
-</p>
-   
+	<h2>Üzerinde çalışılması gereken kodlar:</h2>
+	<textarea id="xmlMetin" rows="13" cols="170" placeholder="Üzerinde çalışmak istdiğiniz kodu buraya yapıştırın."></textarea>
+
+	<h2>Üzerinde çalıştığınız kod:</h2>
+	<textarea id="XmlTamamlanan" rows="13" cols="170" placeholder="Tamamladığınız kod blokları burada gözükecektir."></textarea>
+	
+</div>
+
+<div id="DisaAktarMenu" style="display:none;">
+	<button src="#" onclick="GizleGoster('DisaAktarMenu','anasayfa')" style="position: absolute; right:1%; top:1%;">Geri dön</button>
+	<h2>Dışa aktarılan kodlar:</h2>
+	<textarea id="DisaAktarilmisKod" rows="40" cols="170" placeholder="N'oldu hiçbirşey yapmadın mı?" style="position: absolute; top: 11%; height: 80%;"></textarea>
+</div>
+
+<div style="display: none;"><div id="kukla" style="display: none;"></div></div>
+<div id="anasayfa" style="display: block;">
+	<button onclick="KodMenusunuAc()">Kod menüsünü aç</button>
+	<button id="kodblogunugizle" style="display: ;" onclick="IkiGizleIkiGoster('kodblogunugizle', 'uzerindecalisilan', 'kodblogunugöster', 'kukla')">Üzerinde çalıştığım bloğu gizle</button>
+	<button id="kodblogunugöster" style="display: none;" onclick="IkiGizleIkiGoster('kodblogunugöster', 'kukla', 'kodblogunugizle', 'uzerindecalisilan')">Üzerinde çalıştığım bloğu göster</button>
+	<button onclick="DisaAktar()">Dışa Aktar</button>
+	<button onclick="GizleGoster('anasayfa', 'nasilkullanilir')">Yardım</button>
+	<div id="uzerindecalisilan">
+	<h2>Üzerinde çalıştığınız kod bloğu:</h2><br>
+	<textarea id="XmlKodBlogu" rows="25" cols="100"></textarea>
+	</div>
+	<br>
+
+	<h2>Çevirilecek metin:</h2>
+	<textarea id="xmlcikti" rows="10" cols="60" oninput="CiktidanXmlParcasinaDonustur()" style="display: none;"></textarea>
+	<textarea id="xmlciktiduzgun" rows="15" cols="100"></textarea><br>
+	<textarea id="karakter-uzunlugu-hesaplama-kutusu" style="display: none;"></textarea>
+	
+	<button id="sonrakimesaj">&gt;</button><br><br>
+	
+	<div class="sinircizgisi"></div>
+	<p id="uzunluk" style="position: absolute; left: 0px;"></p>
+</div>
+
+<div id="nasilkullanilir" style="display: none;">
+	<button onclick="GizleGoster('nasilkullanilir', 'anasayfa')">Geri Dön</button><br>
+	Nasıl kullanılacağı açıklanacak...
+</div>
+<script>
+//Girilen bütün kodu kod parçacığı olarak içe aktarır
+function Aktar() {
+    var xmlMetin = document.getElementById("xmlMetin").value.trim();
+    var aktarilanMetin = "";
+    // İlk message etiketini bulma ve içeriğini aktarma
+    var baslangicIndex = xmlMetin.indexOf("<message");
+    var sonIndex = xmlMetin.indexOf("</message>", baslangicIndex) + 10;
+    aktarilanMetin = xmlMetin.substring(baslangicIndex, sonIndex);
+    document.getElementById("XmlKodBlogu").value = aktarilanMetin;
+    // İlk message etiketini silme
+    xmlMetin = xmlMetin.substring(0, baslangicIndex) + xmlMetin.substring(sonIndex);
+    document.getElementById("xmlMetin").value = xmlMetin.trim();
+}
+
+//Bir sonraki mesaja geçme esnasında tamamlanan metin kutusuna değerleri aktaran işlev
+function BloguDisaAktar() {
+    var IslenenKod = document.getElementById("XmlKodBlogu").value;
+    var IslenmisKod = document.getElementById("XmlTamamlanan").value;
+    document.getElementById("XmlTamamlanan").value = IslenmisKod + IslenenKod + "\n";
+}
+
+//Kodların hepsini dışa aktarır
+function DisaAktar() {
+	var UzerindeCalisilacakKod = document.getElementById("xmlMetin").value;
+	var UzerindeCalisilanKod = document.getElementById("XmlKodBlogu").value;
+	var UzerindeCalisilmisKod = document.getElementById("XmlTamamlanan").value;
+	var DisaAktarilanKodlar = UzerindeCalisilmisKod + UzerindeCalisilanKod + UzerindeCalisilacakKod;
+	document.getElementById("DisaAktarilmisKod").value = DisaAktarilanKodlar;
+	document.getElementById("anasayfa").style.display = 'none';
+	document.getElementById("DisaAktarMenu").style.display = 'block';
+}
+
+//Xml ---> Metin
+//Xml dosyasını çevirme işlevi
+function XmlParcasiniCiktiyaDonustur() {
+	//Elementleri değişken olarak tanımlıyor
+    var xmlIcerik = document.getElementById("XmlKodBlogu").value;
+    var aktarilanKutu = document.getElementById("xmlcikti");
+	// DOMParser kullanarak XML içeriği ayrıştır
+    var parser = new DOMParser();
+    var xmlDoc = parser.parseFromString(xmlIcerik, "text/xml");
+	// <string> etiketlerini içeren nodeları al
+    var stringElements = xmlDoc.getElementsByTagName("string");
+	var aktarilanIcerik = "";
+	// Her <string> etiketi için içeriği al ve ikinci metin kutusuna yazdır
+	for (var i = 0; i < stringElements.length; i++) {
+	aktarilanIcerik += stringElements[i].innerHTML + "\n";
+    }
+    aktarilanKutu.value = aktarilanIcerik;//Değişiklikleri uygula
+    }
+	
+//Xml <----> Metin
+function CiktiBoslukTemizle() {
+    const inputText = document.getElementById("xmlcikti").value;
+    const trimmedText = inputText.replace(/\t/g, '').trim();
+    document.getElementById("xmlciktiduzgun").value = trimmedText;
+}
+
+//Metin ---> Xml
+// Veri girdisini XML formatına dönüştür
+function CiktidanXmlParcasinaDonustur() {
+    const xmlData = document.getElementById("XmlKodBlogu").value;
+    const data = document.getElementById("xmlcikti").value;
+    const parser = new DOMParser();
+    const xmlDoc = parser.parseFromString(xmlData, "text/xml");
+    const stringElement = xmlDoc.getElementsByTagName("string")[0];
+    stringElement.innerHTML = data;
+	const content = stringElement.innerHTML;
+    const modifiedContent = content.replace(/ş/g, "ã").replace(/ı/g, "õ").replace(/ğ/g, "ä").replace(/Ş/g, "Ñ").replace(/Ğ/g, "Õ").replace(/İ/g, "Ã").replace(/Ç/g, "ñ");
+    stringElement.innerHTML = modifiedContent;
+    const serializer = new XMLSerializer();
+    const updatedXmlData = serializer.serializeToString(xmlDoc);
+    document.getElementById("XmlKodBlogu").value = updatedXmlData;
+}
+
+//Boşlukları tekrar ekle
+function BosluklariGeriAl() {
+    const inputText = document.getElementById("xmlciktiduzgun").value;
+    const lines = inputText.split("\n");
+    lines.unshift(""); // Başlangıçta boş bir satır ekle
+    const indentedLines = lines.map(line => `\t\t${line}`); // Her satırın başına 2 tab karakteri ekle  
+    indentedLines.push("\t"); // Sonunda 1 tabdan oluşan bir satır ekle
+    const formattedText = indentedLines.join("\n");
+    document.getElementById("xmlcikti").value = formattedText;
+}
+
+//------------Satır Sınırlarını Gösterme-----------------
+//metnin uzunluğunu hesapla
+function KarakterUzunluklariniGoster() {
+	var sayimicinkulanilacakmetin = document.getElementById("xmlciktiduzgun").value;
+	var gosterilecekmetin = sayimicinkulanilacakmetin.replace(/<(?!icon src\b)[^>]+>/g, "").replace(/a(?![^<>]*>)/g, '<canvas style="background-color: green; width: 14px; height: 20px;"></canvas>').replace(/b(?![^<>]*>)/g, '<canvas style="background-color: green; width: 15px; height: 20px;"></canvas>').replace(/c(?![^<>]*>)/g, '<canvas style="background-color: green; width: 13px; height: 20px;"></canvas>').replace(/ç(?![^<>]*>)/g, '<canvas style="background-color: green; width: 13px; height: 20px;"></canvas>').replace(/d(?![^<>]*>)/g, '<canvas style="background-color: green; width: 15px; height: 20px;"></canvas>').replace(/e(?![^<>]*>)/g, '<canvas style="background-color: green; width: 14px; height: 20px;"></canvas>').replace(/f(?![^<>]*>)/g, '<canvas style="background-color: green; width: 11px; height: 20px;"></canvas>').replace(/g(?![^<>]*>)/g, '<canvas style="background-color: green; width: 14px; height: 20px;"></canvas>').replace(/ğ(?![^<>]*>)/g, '<canvas style="background-color: green; width: 15px; height: 20px;"></canvas>').replace(/h(?![^<>]*>)/g, '<canvas style="background-color: green; width: 14px; height: 20px;"></canvas>').replace(/ı(?![^<>]*>)/g, '<canvas style="background-color: green; width: 5px; height: 20px;"></canvas>').replace(/i(?![^<>]*>)/g, '<canvas style="background-color: green; width: 6px; height: 20px;"></canvas>').replace(/j(?![^<>]*>)/g, '<canvas style="background-color: green; width: 9px; height: 20px;"></canvas>').replace(/k(?![^<>]*>)/g, '<canvas style="background-color: green; width: 13px; height: 20px;"></canvas>').replace(/l(?![^<>]*>)/g, '<canvas style="background-color: green; width: 5px; height: 20px;"></canvas>').replace(/m(?![^<>]*>)/g, '<canvas style="background-color: green; width: 20px; height: 20px;"></canvas>').replace(/n(?![^<>]*>)/g, '<canvas style="background-color: green; width: 13px; height: 20px;"></canvas>').replace(/o(?![^<>]*>)/g, '<canvas style="background-color: green; width: 14px; height: 20px;"></canvas>').replace(/ö(?![^<>]*>)/g, '<canvas style="background-color: green; width: 14px; height: 20px;"></canvas>').replace(/p(?![^<>]*>)/g, '<canvas style="background-color: green; width: 15px; height: 20px;"></canvas>').replace(/r(?![^<>]*>)/g, '<canvas style="background-color: green; width: 11px; height: 20px;"></canvas>').replace(/s(?![^<>]*>)/g, '<canvas style="background-color: green; width: 13px; height: 20px;"></canvas>').replace(/ş(?![^<>]*>)/g, '<canvas style="background-color: green; width: 14px; height: 20px;"></canvas>').replace(/t(?![^<>]*>)/g, '<canvas style="background-color: green; width: 10px; height: 20px;"></canvas>').replace(/u(?![^<>]*>)/g, '<canvas style="background-color: green; width: 14px; height: 20px;"></canvas>').replace(/ü(?![^<>]*>)/g, '<canvas style="background-color: green; width: 14px; height: 20px;"></canvas>').replace(/v(?![^<>]*>)/g, '<canvas style="background-color: green; width: 14px; height: 20px;"></canvas>').replace(/y(?![^<>]*>)/g, '<canvas style="background-color: green; width: 15px; height: 20px;"></canvas>').replace(/z(?![^<>]*>)/g, '<canvas style="background-color: green; width: 12px; height: 20px;"></canvas>').replace(/w(?![^<>]*>)/g, '<canvas style="background-color: green; width: 19px; height: 20px;"></canvas>').replace(/x(?![^<>]*>)/g, '<canvas style="background-color: green; width: 13px; height: 20px;"></canvas>').replace(/q(?![^<>]*>)/g, '<canvas style="background-color: green; width: 15px; height: 20px;"></canvas>').replace(/A(?![^<>]*>)/g, '<canvas style="background-color: green; width: 20px; height: 20px;"></canvas>').replace(/B(?![^<>]*>)/g, '<canvas style="background-color: green; width: 18px; height: 20px;"></canvas>').replace(/C(?![^<>]*>)/g, '<canvas style="background-color: green; width: 18px; height: 20px;"></canvas>').replace(/Ç(?![^<>]*>)/g, '<canvas style="background-color: green; width: 14px; height: 20px;"></canvas>').replace(/D(?![^<>]*>)/g, '<canvas style="background-color: green; width: 19px; height: 20px;"></canvas>').replace(/E(?![^<>]*>)/g, '<canvas style="background-color: green; width: 15px; height: 20px;"></canvas>').replace(/F(?![^<>]*>)/g, '<canvas style="background-color: green; width: 15px; height: 20px;"></canvas>').replace(/G(?![^<>]*>)/g, '<canvas style="background-color: green; width: 19px; height: 20px;"></canvas>').replace(/Ğ(?![^<>]*>)/g, '<canvas style="background-color: green; width: 20px; height: 20px;"></canvas>').replace(/H(?![^<>]*>)/g, '<canvas style="background-color: green; width: 18px; height: 20px;"></canvas>').replace(/I(?![^<>]*>)/g, '<canvas style="background-color: green; width: 6px; height: 20px;"></canvas>').replace(/İ(?![^<>]*>)/g, '<canvas style="background-color: green; width: 7px; height: 20px;"></canvas>').replace(/J(?![^<>]*>)/g, '<canvas style="background-color: green; width: 14px; height: 20px;"></canvas>').replace(/K(?![^<>]*>)/g, '<canvas style="background-color: green; width: 17px; height: 20px;"></canvas>').replace(/L(?![^<>]*>)/g, '<canvas style="background-color: green; width: 14px; height: 20px;"></canvas>').replace(/M(?![^<>]*>)/g, '<canvas style="background-color: green; width: 23px; height: 20px;"></canvas>').replace(/N(?![^<>]*>)/g, '<canvas style="background-color: green; width: 18px; height: 20px;"></canvas>').replace(/O(?![^<>]*>)/g, '<canvas style="background-color: green; width: 19px; height: 20px;"></canvas>').replace(/Ö(?![^<>]*>)/g, '<canvas style="background-color: green; width: 19px; height: 20px;"></canvas>').replace(/P(?![^<>]*>)/g, '<canvas style="background-color: green; width: 18px; height: 20px;"></canvas>').replace(/R(?![^<>]*>)/g, '<canvas style="background-color: green; width: 19px; height: 20px;"></canvas>').replace(/S(?![^<>]*>)/g, '<canvas style="background-color: green; width: 15px; height: 20px;"></canvas>').replace(/Ş(?![^<>]*>)/g, '<canvas style="background-color: green; width: 18px; height: 20px;"></canvas>').replace(/T(?![^<>]*>)/g, '<canvas style="background-color: green; width: 15px; height: 20px;"></canvas>').replace(/U(?![^<>]*>)/g, '<canvas style="background-color: green; width: 18px; height: 20px;"></canvas>').replace(/Ü(?![^<>]*>)/g, '<canvas style="background-color: green; width: 18px; height: 20px;"></canvas>').replace(/V(?![^<>]*>)/g, '<canvas style="background-color: green; width: 18px; height: 20px;"></canvas>').replace(/Y(?![^<>]*>)/g, '<canvas style="background-color: green; width: 19px; height: 20px;"></canvas>').replace(/Z(?![^<>]*>)/g, '<canvas style="background-color: green; width: 16px; height: 20px;"></canvas>').replace(/W(?![^<>]*>)/g, '<canvas style="background-color: green; width: 24px; height: 20px;"></canvas>').replace(/X(?![^<>]*>)/g, '<canvas style="background-color: green; width: 17px; height: 20px;"></canvas>').replace(/Q(?![^<>]*>)/g, '<canvas style="background-color: green; width: 20px; height: 20px;"></canvas>').replace(/0(?![^<>]*>)/g, '<canvas style="background-color: green; width: 16px; height: 20px;"></canvas>').replace(/1(?![^<>]*>)/g, '<canvas style="background-color: green; width: 16px; height: 20px;"></canvas>').replace(/2(?![^<>]*>)/g, '<canvas style="background-color: green; width: 16px; height: 20px;"></canvas>').replace(/3(?![^<>]*>)/g, '<canvas style="background-color: green; width: 16px; height: 20px;"></canvas>').replace(/4(?![^<>]*>)/g, '<canvas style="background-color: green; width: 16px; height: 20px;"></canvas>').replace(/5(?![^<>]*>)/g, '<canvas style="background-color: green; width: 16px; height: 20px;"></canvas>').replace(/6(?![^<>]*>)/g, '<canvas style="background-color: green; width: 16px; height: 20px;"></canvas>').replace(/7(?![^<>]*>)/g, '<canvas style="background-color: green; width: 16px; height: 20px;"></canvas>').replace(/8(?![^<>]*>)/g, '<canvas style="background-color: green; width: 16px; height: 20px;"></canvas>').replace(/9(?![^<>]*>)/g, '<canvas style="background-color: green; width: 16px; height: 20px;"></canvas>').replace(/!(?![^<>]*>)/g, '<canvas style="background-color: green; width: 7px; height: 20px;"></canvas>').replace(/"(?![^<>]*>)/g, '<canvas style="background-color: green; width: 8px; height: 20px;"></canvas>').replace(/#(?![^<>]*>)/g, '<canvas style="background-color: green; width: 14px; height: 20px;"></canvas>').replace(/\$(?![^<>]*>)/g, '<canvas style="background-color: green; width: 15px; height: 20px;"></canvas>').replace(/%(?![^<>]*>)/g, '<canvas style="background-color: green; width: 24px; height: 20px;"></canvas>').replace(/&(?![^<>]*>)/g, '<canvas style="background-color: green; width: 18px; height: 20px;"></canvas>').replace(/'(?![^<>]*>)/g, '<canvas style="background-color: green; width: 4px; height: 20px;"></canvas>').replace(/\((?![^<>]*>)/g, '<canvas style="background-color: green; width: 9px; height: 20px;"></canvas>').replace(/\)(?![^<>]*>)/g, '<canvas style="background-color: green; width: 9px; height: 20px;"></canvas>').replace(/\*(?![^<>]*>)/g, '<canvas style="background-color: green; width: 10px; height: 20px;"></canvas>').replace(/\+(?![^<>]*>)/g, '<canvas style="background-color: green; width: 13px; height: 20px;"></canvas>').replace(/,(?![^<>]*>)/g, '<canvas style="background-color: green; width: 5px; height: 20px;"></canvas>').replace(/-(?![^<>]*>)/g, '<canvas style="background-color: green; width: 9px; height: 20px;"></canvas>').replace(/\.(?![^<>]*>)/g, '<canvas style="background-color: green; width: 5px; height: 20px;"></canvas>').replace(/\/(?![^<>]*>)/g, '<canvas style="background-color: green; width: 10px; height: 20px;"></canvas>').replace(/:(?![^<>]*>)/g, '<canvas style="background-color: green; width: 5px; height: 20px;"></canvas>').replace(/;(?![^<>]*>)/g, '<canvas style="background-color: green; width: 5px; height: 20px;"></canvas>').replace(/=(?![^<>]*>)/g, '<canvas style="background-color: green; width: 13px; height: 20px;"></canvas>').replace(/\?(?![^<>]*>)/g, '<canvas style="background-color: green; width: 15px; height: 20px;"></canvas>').replace(/@(?![^<>]*>)/g, '<canvas style="background-color: green; width: 22px; height: 20px;"></canvas>').replace(/_(?![^<>]*>)/g, '<canvas style="background-color: green; width: 13px; height: 20px;"></canvas>').replace(/\n/g, '<br>').replace(/\s(?![^<>]*>)/g, '<canvas style="background-color: green; width: 9px; height: 20px;"></canvas>').replace(/<icon src="[^"]*"\/>/g, '<canvas style="background-color: green; width: 30px; height: 20px;"></canvas>');
+	uzunluk.innerHTML = gosterilecekmetin;
+}
+
+//yan menüyü açıp kapamak için yapılandırma
+function KodMenusunuAc() {
+  document.getElementById("KodMenusu").style.width = "100%";
+}
+
+function KodMenusunuKapat() {
+  document.getElementById("KodMenusu").style.width = "0";
+}
+
+//Sayfa öğelerini gösterme/gizleme
+function GizleGoster(hideId, showId) {
+  document.getElementById(hideId).style.display = 'none';
+  document.getElementById(showId).style.display = 'block';
+}
+
+//2 sayfa öğesini gizle-göster
+function IkiGizleIkiGoster(hideId, hideId2, showId, showId2) {
+  document.getElementById(hideId).style.display = 'none';
+  document.getElementById(hideId2).style.display = 'none';
+  document.getElementById(showId).style.display = '';
+  document.getElementById(showId2).style.display = '';
+}
+
+//işlev tetikleyiciler
+// Xml'i metin yapmak için işlev tetikleyici
+    document.getElementById("XmlKodBlogu").addEventListener("input", function() {
+    XmlParcasiniCiktiyaDonustur();
+	CiktiBoslukTemizle();
+    });
+
+// Metini xml yapmak - uzunluk hesaplamak için işlev tetikleyici
+document.getElementById("xmlciktiduzgun").addEventListener("input", function() {
+    BosluklariGeriAl();
+    CiktidanXmlParcasinaDonustur();
+	KarakterUzunluklariniGoster();
+});
+
+//Üzerinde çalışılacak olan kodu içe aktaran event listener
+document.getElementById("xmlMetin").addEventListener("input", function() {
+    Aktar();
+    XmlParcasiniCiktiyaDonustur();
+	CiktiBoslukTemizle();
+	KarakterUzunluklariniGoster();
+});
+
+//Sonraki Tuşunun İşlevleri
+document.getElementById("sonrakimesaj").addEventListener("click", function() {
+    BloguDisaAktar();
+	Aktar();
+	XmlParcasiniCiktiyaDonustur();
+	CiktiBoslukTemizle();
+	KarakterUzunluklariniGoster();
+});
+</script>
 </body>
 </html>
