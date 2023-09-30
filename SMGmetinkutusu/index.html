@@ -45,11 +45,15 @@
 
 .sinircizgisi {
   position: absolute;
-  left: 480px;
   width: 100px;
   height: 250px;
   background-color: #ff0000a3;
   z-index: 1;
+  cursor: grab;
+}
+
+.sinircizgisi:active {
+  cursor: grabbing;
 }
 </style>
 <title>SMG kutu düzenleme</title>
@@ -66,13 +70,8 @@
 	
 </div>
 
-<div id="DisaAktarMenu" style="display:none;">
-	<button src="#" onclick="GizleGoster('DisaAktarMenu','anasayfa')" style="position: absolute; right:1%; top:1%;">Geri dön</button>
-	<h2>Dışa aktarılan kodlar:</h2>
-	<textarea id="DisaAktarilmisKod" rows="40" cols="170" placeholder="N'oldu hiçbirşey yapmadın mı?" style="position: absolute; top: 11%; height: 80%;"></textarea>
-</div>
+<div id="kukla" style="display: none;"></div>
 
-<div style="display: none;"><div id="kukla" style="display: none;"></div></div>
 <div id="anasayfa" style="display: block;">
 	<button onclick="KodMenusunuAc()">Kod menüsünü aç</button>
 	<button id="kodblogunugizle" style="display: ;" onclick="IkiGizleIkiGoster('kodblogunugizle', 'uzerindecalisilan', 'kodblogunugöster', 'kukla')">Üzerinde çalıştığım bloğu gizle</button>
@@ -92,8 +91,14 @@
 	
 	<button id="sonrakimesaj">&gt;</button><br><br>
 	
-	<div class="sinircizgisi"></div>
+	<div id="sinircizgisi" class="sinircizgisi" style="left: 480px;"></div>
 	<p id="uzunluk" style="position: absolute; left: 0px;"></p>
+</div>
+
+<div id="DisaAktarMenu" style="display:none;">
+	<button src="#" onclick="GizleGoster('DisaAktarMenu','anasayfa')" style="position: absolute; right:1%; top:1%;">Geri dön</button>
+	<h2>Dışa aktarılan kodlar:</h2>
+	<textarea id="DisaAktarilmisKod" rows="40" cols="170" placeholder="N'oldu hiçbirşey yapmadın mı?" style="position: absolute; top: 11%; height: 80%;"></textarea>
 </div>
 
 <div id="nasilkullanilir" style="display: none;">
@@ -195,6 +200,13 @@ function KarakterUzunluklariniGoster() {
 	uzunluk.innerHTML = gosterilecekmetin;
 }
 
+//------------Diğer işlevler----------------
+
+//Sınır çizgisinin hareket edebilmesi için ihitiyaç olan atamalar
+const sinircizgisi = document.getElementById('sinircizgisi');
+let isDragging = false;
+let offsetX;
+
 //yan menüyü açıp kapamak için yapılandırma
 function KodMenusunuAc() {
   document.getElementById("KodMenusu").style.width = "100%";
@@ -225,7 +237,7 @@ function IkiGizleIkiGoster(hideId, hideId2, showId, showId2) {
 	CiktiBoslukTemizle();
     });
 
-// Metini xml yapmak - uzunluk hesaplamak için işlev tetikleyici
+//Metini xml yapmak - uzunluk hesaplamak için işlev tetikleyici
 document.getElementById("xmlciktiduzgun").addEventListener("input", function() {
     BosluklariGeriAl();
     CiktidanXmlParcasinaDonustur();
@@ -247,6 +259,24 @@ document.getElementById("sonrakimesaj").addEventListener("click", function() {
 	XmlParcasiniCiktiyaDonustur();
 	CiktiBoslukTemizle();
 	KarakterUzunluklariniGoster();
+});
+
+// Fare tıklamasıyla sürüklemeyi başlat
+sinircizgisi.addEventListener('mousedown', (e) => {
+  isDragging = true;
+  offsetX = e.clientX - sinircizgisi.getBoundingClientRect().left;
+});
+
+// x ekseninde fare sürükleme işlemi
+document.addEventListener('mousemove', (e) => {
+  if (!isDragging) return;
+  const x = e.clientX - offsetX;
+  sinircizgisi.style.left = `${x}px`;
+});
+
+// Fare bırakıldığında sürükleme durdurulur
+document.addEventListener('mouseup', () => {
+  isDragging = false;
 });
 </script>
 </body>
