@@ -3,17 +3,23 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f0f0f0; /* Gri arka plan rengi */
+	overflow-y: hidden;
 }
 
-nav {
+.ustmenu {
+	position:absolute;
     display: flex;
 	top: 0px;
     justify-content: space-around;
     background-color: #555;
     overflow: hidden;
+	height: 59px;
+	width: 100%;
+	opacity: 100%;
+	animation: UstMenuYukari 0.7s ease-in-out forwards; /* 0.7 saniyede aşağı hareket etsin */
 }
 
-nav a {
+.ustmenu a {
     text-decoration: none;
     color: white;
     padding: 20px;
@@ -22,21 +28,22 @@ nav a {
     flex: 1;
 }
 
-nav a:hover {
+.ustmenu a:hover {
     background-color: #777;
     flex-grow: 4;
 }
 
-nav:hover a {
+.ustmenu:hover a {
     flex: 1;
     flex-grow: 1;
 }
 
-nav:hover {
+.ustmenu:hover {
     background-color: #555;
 }
 
 .form-container {
+	opacity: 0%;
     margin: auto;
     margin-top: 8%;
     display: flex;
@@ -46,6 +53,7 @@ nav:hover {
     border: 1px solid #ddd;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	animation: OpakligiArtir 0.7s ease-in-out forwards; /* 0.7 saniyede aşağı hareket etsin */
 }
 
 .form-container label {
@@ -98,13 +106,78 @@ nav:hover {
   background-color: #555;
   overflow: hidden;
   position: relative;
-  top: -200px; /* Başlangıçta yukarıda başlasın */
-  animation: moveDown 0.4s ease-in-out forwards; /* 2 saniyede aşağı hareket etsin */
+  top: -100px; /* Başlangıçta yukarıda başlasın */
+  animation: KitapEkleBaslikAsagi 0.7s ease-in-out forwards; /* 0.7 saniyede aşağı hareket etsin */
   color: #fff;
+  opacity: 0%; /* Başlangıçta opaklık sıfır */
 }
 
-@keyframes moveDown {
+.temelogeleryukari {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  top: 100%;
+  animation: TemelSayfalarYukari 0.4s ease-in-out forwards; /* 0.4 saniyede yukarı hareket etsin */
+  opacity: 0%;
+  overflow: hidden; /* İçeriğin sınırlarını koru */
+}
+
+.temelogelerasagi {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  top: 59px;
+  animation: TemelSayfalarAsagi 0.4s ease-in-out forwards; /* 0.4 saniyede yukarı hareket etsin */
+  opacity: 100%;
+  overflow: hidden; /* İçeriğin sınırlarını koru */
+}
+
+.ayarlar {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  top: 59px;
+  animation: OpakligiAzalt 0.7s ease-in-out forwards; /* 0.7 saniyede aşağı hareket etsin */
+  opacity: 100%;
+  overflow: hidden; /* İçeriğin sınırlarını koru */
+}
+
+@keyframes TemelSayfalarYukari {
+  to {
+    top: 59px; /* Sonunda yukarıdan aşağıya tam konumda olsun */
+    opacity: 100%; /* Sonunda opaklık 100% (tam opak) olsun */
+  }
+}
+
+@keyframes TemelSayfalarAsagi {
+  to {
+    top: 100%; /* Sonunda yukarıdan aşağıya tam konumda olsun */
+	opacity: 0%; /* Sonunda opaklık 100% (tam opak) olsun */
+  }
+}
+
+@keyframes OpakligiArtir {
+  to {
+	opacity: 100%; /* Sonunda opaklık 100% (tam opak) olsun */
+  }
+}
+
+@keyframes OpakligiAzalt {
+  to {
+	opacity: 0%; /* Sonunda opaklık 100% (tam opak) olsun */
+  }
+}
+
+@keyframes UstMenuYukari {
+  to {
+    top: -59px; /* Sonunda yukarıdan aşağıya tam konumda olsun */
+	opacity: 0%; /* Sonunda opaklık 100% (tam opak) olsun */
+  }
+}
+
+@keyframes KitapEkleBaslikAsagi {
   to {
     top: 0; /* Sonunda yukarıdan aşağıya tam konumda olsun */
+	opacity: 100%; /* Sonunda opaklık 100% (tam opak) olsun */
   }
 }
