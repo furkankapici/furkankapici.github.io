@@ -8,7 +8,7 @@
   <title>Kütüphane Uygulaması</title>
 </head>
 <body>
-  <nav id="UstMenu">
+  <nav id="UstMenu" class="ustmenu">
 	<a href="#" onclick="GizleGoster('Anasayfa', 'kitapAlVer', 'YeniOgrenci', 'Ayarlar')">Anasayfa</a>
     <a href="#" onclick="GizleGoster('kitapAlVer', 'Anasayfa', 'YeniOgrenci', 'Ayarlar')">Kitap teslim et/al</a>
     <a href="#" onclick="GizleGoster('YeniOgrenci', 'kitapAlVer', 'Anasayfa', 'Ayarlar')">Yeni Öğrenci</a>
@@ -18,18 +18,19 @@
   <div id="KitapEkleAfis" style="display: none;" class="kitapekle"><h2>Kitap Ekle</h2></div>
 
   <!-- Anasayfa -->
-<div id="Anasayfa" style="display: block;">Anasayfa</div>
+<div id="Anasayfa" class="temelogeleryukari" style="display: block;">Anasayfa</div>
   
   <!-- Kitap teslim et-al -->
-<div id="kitapAlVer" style="display: none;">Kitap teslim et/al</div>
+<div id="kitapAlVer" class="temelogeleryukari" style="display: none;">Kitap teslim et/al</div>
 
-  <!-- Listeler -->
-<div id="YeniOgrenci" style="display: none;">Yeni Öğrenci</div>
+  <!-- Öğrenci kayıt -->
+<div id="YeniOgrenci" class="temelogeleryukari" style="display: none;">Yeni Öğrenci</div>
 
   <!-- Ayarlar -->
-<div id="Ayarlar" style="display: none;">
+<div id="Ayarlar" class="temelogeleryukari" style="display: none;">
+<div id="Ayarlar2" class="OpakligiAzalt">
 <br>
-<button class="tus1" onclick="kitapEkleEkraninaGit()">Kitap Ekle</button>
+<button class="tus1" onclick="kitapEkleEkraninaGit()">Yeni Kitap Ekle</button>
 
 <h2>Varsayılan ödünç alma süresi:</h2>
 <input type="number" id="VarsayilanSure" name="VarsayilanSure" required><br>
@@ -37,6 +38,7 @@
 <h2>Türler</h2><br>
 
 <h2>Yazarlar</h2><br>
+</div>
 </div>
 
   <!-- Kitap Ekle -->
