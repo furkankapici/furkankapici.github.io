@@ -1,0 +1,110 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0; /* Gri arka plan rengi */
+}
+
+nav {
+    display: flex;
+	top: 0px;
+    justify-content: space-around;
+    background-color: #555;
+    overflow: hidden;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    padding: 20px;
+	text-align: center; /* Metni ortala */
+    transition: background-color 0.3s, flex-grow 0.3s;
+    flex: 1;
+}
+
+nav a:hover {
+    background-color: #777;
+    flex-grow: 4;
+}
+
+nav:hover a {
+    flex: 1;
+    flex-grow: 1;
+}
+
+nav:hover {
+    background-color: #555;
+}
+
+.form-container {
+    margin: auto;
+    margin-top: 8%;
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-container label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.form-container input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+}
+
+.form-container input[type="submit"] {
+    background-color: #4caf50;
+    color: white;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+	border: none;
+}
+
+.form-container input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+.tus1 {
+    padding: 8px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    background-color: #4caf50;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+	text-decoration: none;
+	border: none;
+}
+
+.tus1:hover {
+    background-color: #45a049;
+}
+
+.tus1:focus {
+  outline: none;
+}
+
+.kitapekle {
+  justify-content: space-around;
+  background-color: #555;
+  overflow: hidden;
+  position: relative;
+  top: -200px; /* Başlangıçta yukarıda başlasın */
+  animation: moveDown 0.4s ease-in-out forwards; /* 2 saniyede aşağı hareket etsin */
+  color: #fff;
+}
+
+@keyframes moveDown {
+  to {
+    top: 0; /* Sonunda yukarıdan aşağıya tam konumda olsun */
+  }
+}
