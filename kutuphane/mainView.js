@@ -27,31 +27,33 @@ var Gizlenecek2 = document.getElementById(hideId2);
 var Gizlenecek3 = document.getElementById(hideId3);
 var Gosterilecek = document.getElementById(showId);
 
-Gizlenecek1.classList.remove("temelogeler"); // Eski class'ı kaldır
-Gizlenecek1.classList.add("temelogelerasagi"); // Yeni class'ı ekle
+Gizlenecek1.style.top = '59px';
+Gizlenecek1.style.opacity = '100%';
 
-Gizlenecek2.classList.remove("temelogeler"); // Eski class'ı kaldır
-Gizlenecek2.classList.add("temelogelerasagi"); // Yeni class'ı ekle
+Gizlenecek2.style.top = '59px';
+Gizlenecek2.style.opacity = '100%';
 
-Gizlenecek3.classList.remove("temelogeler"); // Eski class'ı kaldır
-Gizlenecek3.classList.add("temelogelerasagi"); // Yeni class'ı ekle
+Gizlenecek3.style.top = '59px';
+Gizlenecek3.style.opacity = '100%';
+
+document.documentElement.style.setProperty('--temel-ogeler-animasyon', 'TemelSayfalarAsagi');
+
+Gizlenecek1.style.animation = null; // Animasyonu tekrar etkinleştir
+Gizlenecek2.style.animation = null; // Animasyonu tekrar etkinleştir
+Gizlenecek3.style.animation = null; // Animasyonu tekrar etkinleştir
 
 // 400 milisaniye bekleyip sonra ikinci işlem
 await bekle(400);
 
- Gosterilecek.style.display = 'block';
- Gizlenecek1.style.display = 'none';
- Gizlenecek2.style.display = 'none';
- Gizlenecek3.style.display = 'none';
+Gosterilecek.style.display = 'block';
+Gizlenecek1.style.display = 'none';
+Gizlenecek2.style.display = 'none';
+Gizlenecek3.style.display = 'none';
  
- Gizlenecek1.classList.remove("temelogelerasagi"); // Eski class'ı kaldır
- Gizlenecek1.classList.add("temelogeler"); // Yeni class'ı ekle
-
- Gizlenecek2.classList.remove("temelogelerasagi"); // Eski class'ı kaldır
- Gizlenecek2.classList.add("temelogeler"); // Yeni class'ı ekle
-
- Gizlenecek3.classList.remove("temelogelerasagi"); // Eski class'ı kaldır
- Gizlenecek3.classList.add("temelogeler"); // Yeni class'ı ekle
+Gosterilecek.style.top = '100%';
+Gosterilecek.style.opacity = '0%';
+document.documentElement.style.setProperty('--temel-ogeler-animasyon', 'TemelSayfalarYukari');
+Gosterilecek.style.animation = null;
 }
 
 
@@ -59,43 +61,167 @@ await bekle(400);
 
 
 
-
-
-var kitapEkleAfisAnimasyon = document.getElementById("KitapEkleAfis");
-kitapEkleAfisAnimasyon.style.animation = "none"; // Animasyonu sıfırla
 
 var UstMenuYukariAnimasyon = document.getElementById("UstMenu");
 UstMenuYukariAnimasyon.style.animation = "none"; // Animasyonu sıfırla
 
-var AyarlarAnimasyon = document.getElementById("Ayarlar2");
-AyarlarAnimasyon.style.animation = "none"; // Animasyonu sıfırla
-
-function bekle(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-}
+var kitapEkleAfisAnimasyon = document.getElementById("KitapEkleAfis");
+kitapEkleAfisAnimasyon.style.animation = "none"; // Animasyonu sıfırla
 
 async function kitapEkleEkraninaGit() {
-  void UstMenuYukariAnimasyon.offsetWidth; // Reflow'u tetikle
-  UstMenuYukariAnimasyon.style.animation = null; // Animasyonu tekrar etkinleştir
+  var Ayarlar = document.getElementById("Ayarlar");
+  var UstMenu = document.getElementById("UstMenu");
+  var KitapEkleAfis = document.getElementById("KitapEkleAfis");
+  var KitapEkleForm = document.getElementById("kitapEkleForm");
+	
+  void UstMenu.offsetWidth; // Reflow'u tetikle
+  UstMenu.style.animation = null; // Animasyonu tekrar etkinleştir
   
-  document.getElementById("UstMenu").style.display = 'none';
+  Ayarlar.style.top = '59px';
+  Ayarlar.style.opacity = '100%';
   
-  var AyarlarAnimasyon = document.getElementById("UstMenu");
-  void AyarlarAnimasyon.offsetWidth; // Reflow'u tetikle
-  AyarlarAnimasyon.style.animation = null; // Animasyonu tekrar etkinleştir
+  document.documentElement.style.setProperty('--temel-ogeler-animasyon', 'OpakligiAzalt');
+  
+  void Ayarlar.offsetWidth; // Reflow'u tetikle
+  Ayarlar.style.animation = null; // Animasyonu tekrar etkinleştir
   
   // 700 milisaniye bekleyip sonra ikinci işlem
   await bekle(700);
-
-  document.getElementById("Ayarlar").style.display = 'none';
-  document.getElementById("KitapEkleAfis").style.display = 'flex';
   
-  var kitapEkleAfisAnimasyon = document.getElementById("KitapEkleAfis");
-  void kitapEkleAfisAnimasyon.offsetWidth; // Reflow'u tetikle
-  kitapEkleAfisAnimasyon.style.animation = null; // Animasyonu tekrar etkinleştir
+  Ayarlar.style.animation = "none"; // Animasyonu sıfırla
+  UstMenu.style.animation = "none"; // Animasyonu sıfırla
   
-  document.getElementById("KitapEkle").style.display = 'block';
+  Ayarlar.style.display = 'none';
+  UstMenu.style.display = 'none';
+  KitapEkleAfis.style.display = 'flex';
+  KitapEkleForm.style.display = 'flex';
+  
+  
+  void KitapEkleAfis.offsetWidth; // Reflow'u tetikle
+  KitapEkleAfis.style.animation = null; // Animasyonu tekrar etkinleştir
+  
+  // 700 milisaniye bekleyip sonra üçüncü işlem
+  await bekle(700);
+  KitapEkleAfis.style.opacity = '100%';
+  KitapEkleAfis.style.top = '0px';
+  
+  KitapEkleAfis.style.animation = "none"; // Animasyonu sıfırla
+  UstMenu.style.animation = "none"; // Animasyonu sıfırla
+  
+  KitapEkleForm.style.opacity = '100%';
 }
+/*
+async function kitapEkleEkranindanCik() {
+  var Ayarlar = document.getElementById("Ayarlar");
+  var UstMenu = document.getElementById("UstMenu");
+  var KitapEkleAfis = document.getElementById("KitapEkleAfis");
+  var KitapEkleForm = document.getElementById("kitapEkleForm");
+
+  document.documentElement.style.setProperty('--kitap-ekle-afis-animasyon', 'KitapEkleBaslikYukari');
+  document.documentElement.style.setProperty('--kitap-ekle-form-animasyon', 'OpakligiAzalt');
   
+  void KitapEkleAfis.offsetWidth; // Reflow'u tetikle
+  KitapEkleAfis.style.animation = null; // Animasyonu tekrar etkinleştir
 
   
+  void KitapEkleForm.offsetWidth; // Reflow'u tetikle
+  KitapEkleForm.style.animation = null; // Animasyonu tekrar etkinleştir
+  
+  // 700 milisaniye bekleyip sonra ikinci işlem
+  await bekle(700);
+  
+  Ayarlar.style.opacity = '0%';
+  UstMenu.style.top = '-59px';
+  UstMenu.style.opacity = '0%';
+  
+  document.documentElement.style.setProperty('--ayarlar-animasyon', 'OpakligiArtir');
+  document.documentElement.style.setProperty('--ust-menu-animasyon', 'UstMenuAsagi');
+  
+  void UstMenu.offsetWidth; // Reflow'u tetikle
+  UstMenu.style.animation = null; // Animasyonu tekrar etkinleştir
+  
+  KitapEkleAfis.style.opacity = '0%';
+  KitapEkleAfis.style.top = '-100px';
+  
+  Ayarlar.style.display = 'block';
+  UstMenu.style.display = 'flex';
+  KitapEkleAfis.style.display = 'none';
+  KitapEkleForm.style.display = 'none';
+  
+ // 700 milisaniye bekleyip sonra üçüncü işlem
+  await bekle(700);
+  document.documentElement.style.setProperty('--ayarlar-animasyon', 'OpakligiAzalt');
+  document.documentElement.style.setProperty('--kitap-ekle-afis-animasyon', 'KitapEkleBaslikAsagi');
+  document.documentElement.style.setProperty('--ust-menu-animasyon', 'UstMenuYukari');
+  document.documentElement.style.setProperty('--kitap-ekle-form-animasyon', 'OpakligiArtir');
+  
+  Ayarlar.style.opacity = '100%';
+  UstMenu.style.top = '0px';
+  UstMenu.style.opacity = '100%';
+  
+  UstMenu.style.animation = "none"; // Animasyonu sıfırla
+  KitapEkleAfis.animation = "none"; // Animasyonu sıfırla
+  KitapEkleForm.animation = "none"; // Animasyonu sıfırla
+  
+  Ayarlar.style.removeProperty('opacity');
+  Ayarlar.style.removeProperty('display');
+  KitapEkleForm.style.removeProperty('opacity');
+  KitapEkleForm.style.removeProperty('display');
+  
+  
+  Ayarlar.classList.remove("ayarlar"); // Eski class'ı kaldır
+  Ayarlar.classList.add("temelogelerasagi"); // Yeni class'ı ekle
+  Ayarlar.style.animation = "none"; // Animasyonu sıfırla
+}
+*/
+ 
+async function kitapEkleEkranindanCik() {
+  var Ayarlar = document.getElementById("Ayarlar");
+  var UstMenu = document.getElementById("UstMenu");
+  var KitapEkleAfis = document.getElementById("KitapEkleAfis");
+  var KitapEkleForm = document.getElementById("kitapEkleForm");
+  
+  document.documentElement.style.setProperty('--kitap-ekle-afis-animasyon', 'KitapEkleBaslikYukari');
+  document.documentElement.style.setProperty('--kitap-ekle-form-animasyon', 'OpakligiAzalt');
+  
+  void KitapEkleAfis.offsetWidth; // Reflow'u tetikle
+  KitapEkleAfis.style.animation = null; // Animasyonu tekrar etkinleştir
+
+  void KitapEkleForm.offsetWidth; // Reflow'u tetikle
+  KitapEkleForm.style.animation = null; // Animasyonu tekrar etkinleştir
+  
+  await bekle(700);
+  Ayarlar.style.display = 'block';
+  UstMenu.style.display = 'flex';
+  KitapEkleAfis.style.display = 'none';
+  KitapEkleForm.style.display = 'none';
+  
+  document.documentElement.style.setProperty('--temel-ogeler-animasyon', 'OpakligiArtir');
+  document.documentElement.style.setProperty('--ust-menu-animasyon', 'UstMenuAsagi');
+  
+  Ayarlar.style.opacity = '0%';
+  UstMenu.style.top = '-59px';
+  UstMenu.style.opacity = '0%';
+  
+  void Ayarlar.offsetWidth; // Reflow'u tetikle
+  Ayarlar.style.animation = null; // Animasyonu tekrar etkinleştir
+
+  void UstMenu.offsetWidth; // Reflow'u tetikle
+  UstMenu.style.animation = null; // Animasyonu tekrar etkinleştir
+  
+  await bekle(700); 
+  document.documentElement.style.setProperty('--ust-menu-animasyon', 'UstMenuYukari');
+  document.documentElement.style.setProperty('--kitap-ekle-afis-animasyon', 'KitapEkleBaslikAsagi');
+  document.documentElement.style.setProperty('--kitap-ekle-form-animasyon', 'OpakligiArtir');
+  document.documentElement.style.setProperty('--temel-ogeler-animasyon', 'TemelSayfalarYukari');
+  
+  Ayarlar.style.opacity = '0%';
+  UstMenu.style.top = '0px';
+  UstMenu.style.opacity = '100%';
+  KitapEkleAfis.style.opacity = '0%';
+  KitapEkleAfis.style.top = '-100px';
+  KitapEkleForm.style.opacity = '0%';
+  
+  UstMenu.style.animation = "none"; // Animasyonu sıfırla
+  Ayarlar.style.animationDuration = "0s";
+}
