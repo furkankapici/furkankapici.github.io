@@ -8,27 +8,26 @@
   <title>Kütüphane Uygulaması</title>
 </head>
 <body>
-  <nav id="UstMenu" class="ustmenu">
+  <nav id="UstMenu" style="display: flex; top: 0px; opacity: 100%;" class="ustmenu">
 	<a href="#" onclick="GizleGoster('Anasayfa', 'kitapAlVer', 'YeniOgrenci', 'Ayarlar')">Anasayfa</a>
     <a href="#" onclick="GizleGoster('kitapAlVer', 'Anasayfa', 'YeniOgrenci', 'Ayarlar')">Kitap teslim et/al</a>
     <a href="#" onclick="GizleGoster('YeniOgrenci', 'kitapAlVer', 'Anasayfa', 'Ayarlar')">Yeni Öğrenci</a>
     <a href="#" onclick="location.reload()">Listeler</a>
     <a href="#" onclick="GizleGoster('Ayarlar', 'kitapAlVer', 'YeniOgrenci', 'Anasayfa')">Ayarlar</a>
   </nav>
-  <div id="KitapEkleAfis" style="display: none;" class="kitapekle"><h2>Kitap Ekle</h2></div>
+  <div id="KitapEkleAfis" style="display: none; top: -100px; opacity: 0%;" class="kitapekleafisasagi"><h2>Kitap Ekle</h2></div>
 
   <!-- Anasayfa -->
-<div id="Anasayfa" class="temelogeleryukari" style="display: block;">Anasayfa</div>
+<div id="Anasayfa" style="display: block; top: 59px; opacity: 1;" class="temelogeler" style="display: block;">Anasayfa</div>
   
   <!-- Kitap teslim et-al -->
-<div id="kitapAlVer" class="temelogeleryukari" style="display: none;">Kitap teslim et/al</div>
+<div id="kitapAlVer" style="display: none; top: 59px; opacity: 1;" class="temelogeler" style="display: none;">Kitap teslim et/al</div>
 
   <!-- Öğrenci kayıt -->
-<div id="YeniOgrenci" class="temelogeleryukari" style="display: none;">Yeni Öğrenci</div>
+<div id="YeniOgrenci" style="display: none; top: 59px; opacity: 1;" class="temelogeler" style="display: none;">Yeni Öğrenci</div>
 
   <!-- Ayarlar -->
-<div id="Ayarlar" class="temelogeleryukari" style="display: none;">
-<div id="Ayarlar2" class="OpakligiAzalt">
+<div id="Ayarlar" style="display: none; top: 59px; opacity: 1;" class="temelogeler" style="display: none;">
 <br>
 <button class="tus1" onclick="kitapEkleEkraninaGit()">Yeni Kitap Ekle</button>
 
@@ -39,11 +38,9 @@
 
 <h2>Yazarlar</h2><br>
 </div>
-</div>
 
   <!-- Kitap Ekle -->
-<div id="KitapEkle" style="display: none;">
-  <form class="form-container" id="kitapVerForm">
+  <form class="form-container" style="display: none;" id="kitapEkleForm">
     <label for="kitapAdi">Kitap Adı:</label>
     <input type="text" id="kitapAdi" name="kitapAdi" required>
 
@@ -56,9 +53,9 @@
     <label for="yayinTarihi">Barkod:</label>
     <input type="text" id="yayinTarihi" name="yayinTarihi" required>
 
-    <input type="submit" value="Ekle">
+    <input type="submit" value="Ekle"><br>
+	<a href="#" onclick="kitapEkleEkranindanCik()" class="tus1">Çık</a>
   </form>
-</div>
   
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/idb@7/build/umd.js"></script>
