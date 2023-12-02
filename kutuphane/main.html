@@ -139,14 +139,7 @@ Yazar Ekle:
 <input style="height: 20px;" type="text" id="YazarEkle" name="YazarEkle"> 
 <button class="tus1" onclick="YazarEkle()">Ekle</button>
 
-<h2>Türler</h2>
-<select id="renkSecimi" name="renk" class="turform">
-    <option value="kirmizi">Kırmızı</option>
-    <option value="mavi">Mavi</option>
-    <option value="yesil">Yeşil</option>
-    <option value="sari">Sarı</option>
-</select><br><br>
-Tür Ekle:
+<h2>Tür Ekle</h2>
 <input style="height: 20px;" type="text" id="TurEkle" name="TurEkle"> 
 <a class="tus1">Ekle</a>
 <br><br>
@@ -165,7 +158,12 @@ Tür Ekle:
     <input type="text" id="yazar" name="yazar" required>
 
     <label for="Tur">Tür:</label>
-    <input type="text" id="Tur" name="Tur" required>
+	<select class="turform" id="renkSecimi" name="Tur" required>
+    <option value="kirmizi">Hikaye</option>
+    <option value="mavi">Roman</option>
+    <option value="yesil">Masal</option>
+    <option value="sari">Deneme</option>
+    </select>
 
     <label for="yayinTarihi">Barkod:</label>
     <input type="text" id="yayinTarihi" name="yayinTarihi" required>
