@@ -9,13 +9,13 @@
 </head>
 <body>
   <nav id="UstMenu" style="display: flex; top: 0px; opacity: 100%;" class="ustmenu">
-	<a href="#" onclick="GizleGoster('Anasayfa', 'kitapAlVer', 'YeniOgrenci', 'Ayarlar')">Anasayfa</a>
-    <a href="#" onclick="GizleGoster('kitapAlVer', 'Anasayfa', 'YeniOgrenci', 'Ayarlar')">Kitap teslim et/al</a>
-    <a href="#" onclick="GizleGoster('YeniOgrenci', 'kitapAlVer', 'Anasayfa', 'Ayarlar')">Yeni Öğrenci</a>
-    <a href="#" onclick="location.reload()">Listeler</a>
-    <a href="#" onclick="GizleGoster('Ayarlar', 'kitapAlVer', 'YeniOgrenci', 'Anasayfa')">Ayarlar</a>
+	<a href="#" onclick="GizleGoster('Anasayfa', 'kitapAlVer', 'YeniOgrenci', 'Ayarlar', 'Istatistikler')">Anasayfa</a>
+    <a href="#" onclick="GizleGoster('kitapAlVer', 'Anasayfa', 'YeniOgrenci', 'Ayarlar', 'Istatistikler')">Kitap teslim et/al</a>
+    <a href="#" onclick="GizleGoster('YeniOgrenci', 'kitapAlVer', 'Anasayfa', 'Ayarlar', 'Istatistikler')">Yeni Öğrenci</a>
+    <a href="#" onclick="GizleGoster('Istatistikler', 'kitapAlVer', 'Anasayfa', 'YeniOgrenci', 'Ayarlar')">İstatistikler</a>
+    <a href="#" onclick="GizleGoster('Ayarlar', 'kitapAlVer', 'YeniOgrenci', 'Anasayfa', 'Istatistikler')">Ayarlar</a>
   </nav>
-  <div id="KitapEkleAfis" style="display: none; top: -100px; opacity: 0%;" class="kitapekleafisasagi"><h2>Kitap Ekle</h2></div>
+  <div id="KitapEkleAfis" style="display: none; top: -100px; opacity: 0%;" class="kitapekleafis"><h2>Kitap Ekle</h2></div>
 
   <!-- Anasayfa -->
 <div id="Anasayfa" style="display: block; top: 59px; opacity: 1;" class="temelogeler" style="display: block;">Anasayfa</div>
@@ -26,17 +26,134 @@
   <!-- Öğrenci kayıt -->
 <div id="YeniOgrenci" style="display: none; top: 59px; opacity: 1;" class="temelogeler" style="display: none;">Yeni Öğrenci</div>
 
+  <!-- İstatistikler -->
+<div id="Istatistikler" style="display: none; top: 59px; opacity: 1;" class="temelogeler" style="display: none;">sasfasd</div>
+
   <!-- Ayarlar -->
 <div id="Ayarlar" style="display: none; top: 59px; opacity: 1;" class="temelogeler" style="display: none;">
+<h2>Kitaplar</h2>
+<div style="max-height: 43%; min-width: 65%; max-width: 100%; width: max-content; overflow-y: auto;">
+<table id="KitapTablo" class="tablo" style="border-right: 1px solid #ddd;">
+   <thead>
+        <tr>
+            <th>Kitap Adı</th>
+            <th>Tür</th>
+            <th>Yazar</th>
+			<th>Demir <br>Baş No</th>
+			<th>Dolap</th>
+			<th>Raf</th>
+			<th>Barkod</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Damda Deli Var</td>
+            <td>Roman</td>
+            <td>Aziz Nesin</td>
+			<td>1</td>
+			<td>1</td>
+			<td>2</td>
+			<td>9789759038014</td>
+        </tr>
+        <tr>
+            <td>Var Mısın?</td>
+            <td>Kişisel Gelişim</td>
+            <td>Doğan Cüceloğlu</td>
+			<td>1</td>
+			<td>1</td>
+			<td>2</td>
+			<td>9789759038014</td>
+        </tr>
+        <tr>
+            <td>Var Mısın?</td>
+            <td>Kişisel Gelişim</td>
+            <td>Doğan Cüceloğlu</td>
+			<td>1</td>
+			<td>1</td>
+			<td>2</td>
+			<td>9789759038014</td>
+        </tr>
+        <tr>
+            <td>Var Mısın?</td>
+            <td>Kişisel Gelişim</td>
+            <td>Doğan Cüceloğlu</td>
+			<td>1</td>
+			<td>1</td>
+			<td>2</td>
+			<td>9789759038014</td>
+        </tr>
+        <tr>
+            <td>Var Mısın?</td>
+            <td>Kişisel Gelişim</td>
+            <td>Doğan Cüceloğlu</td>
+			<td>1</td>
+			<td>1</td>
+			<td>2</td>
+			<td>9789759038014</td>
+        </tr>
+		        <tr>
+            <td>Var Mısın?</td>
+            <td>Kişisel Gelişim</td>
+            <td>Doğan Cüceloğlu</td>
+			<td>1</td>
+			<td>1</td>
+			<td>2</td>
+			<td>9789759038014</td>
+        </tr>
+		        <tr>
+            <td>Var Mısın?</td>
+            <td>Kişisel Gelişim</td>
+            <td>Doğan Cüceloğlu</td>
+			<td>1</td>
+			<td>1</td>
+			<td>2</td>
+			<td>9789759038014</td>
+        </tr>
+		        <tr>
+            <td>Var Mısın?</td>
+            <td>Kişisel Gelişim</td>
+            <td>Doğan Cüceloğlu</td>
+			<td>1</td>
+			<td>1</td>
+			<td>2</td>
+			<td>9789759038014</td>
+        </tr>
+	</tbody>
+</table>
+</div>
 <br>
-<button class="tus1" onclick="kitapEkleEkraninaGit()">Yeni Kitap Ekle</button>
+<button class="tus1" onclick="kitapEkleEkraninaGit()">Yeni Kitap Ekle &gt;</button>
+
+<h2>Yazarlar</h2>
+<div style="max-height: 25%; min-width: 18%; max-width: 100%; width: max-content; overflow-y: auto;">
+<table id="YazarTablo" class="tablo">
+  <tbody>
+   <tr><td>Reşat Nuri Gültekin</td></tr>
+   <tr><td>Doğan Cücelğlu</td></tr>
+   <tr><td>Namık Kemal</td></tr>
+  </tbody>
+</table>
+</div>
+<br>
+Yazar Ekle:
+<input style="height: 20px;" type="text" id="YazarEkle" name="YazarEkle"> 
+<button class="tus1" onclick="YazarEkle()">Ekle</button>
+
+<h2>Türler</h2>
+<select id="renkSecimi" name="renk" class="turform">
+    <option value="kirmizi">Kırmızı</option>
+    <option value="mavi">Mavi</option>
+    <option value="yesil">Yeşil</option>
+    <option value="sari">Sarı</option>
+</select><br><br>
+Tür Ekle:
+<input style="height: 20px;" type="text" id="TurEkle" name="TurEkle"> 
+<a class="tus1">Ekle</a>
+<br><br>
 
 <h2>Varsayılan ödünç alma süresi:</h2>
-<input type="number" id="VarsayilanSure" name="VarsayilanSure" required><br>
-
-<h2>Türler</h2><br>
-
-<h2>Yazarlar</h2><br>
+<input type="number" id="VarsayilanSure" name="VarsayilanSure" required>
+<br><br>
 </div>
 
   <!-- Kitap Ekle -->
@@ -52,6 +169,15 @@
 
     <label for="yayinTarihi">Barkod:</label>
     <input type="text" id="yayinTarihi" name="yayinTarihi" required>
+	
+    <label for="DemirBasNo">Demir Baş No:</label>
+    <input type="text" id="DemirBasNo" name="DemirBasNo" required>
+	
+    <label for="DolapNo">Dolap:</label>
+    <input type="text" id="DolapNo" name="DolapNo" required>
+	
+    <label for="RafNo">Raf:</label>
+    <input type="text" id="RafNo" name="RafNo" required>
 
     <input type="submit" value="Ekle"><br>
 	<a href="#" onclick="kitapEkleEkranindanCik()" class="tus1">Çık</a>
