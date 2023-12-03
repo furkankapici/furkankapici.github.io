@@ -18,13 +18,101 @@
   <div id="KitapEkleAfis" style="display: none; top: -100px; opacity: 0%;" class="kitapekleafis"><h2>Kitap Ekle</h2></div>
 
   <!-- Anasayfa -->
-<div id="Anasayfa" style="display: block; top: 59px; opacity: 1;" class="temelogeler" style="display: block;">Anasayfa</div>
+<div id="Anasayfa" style="display: block; top: 59px; opacity: 1;" class="temelogeler" style="display: block;">
+<div class="clock">
+  <div>
+    <div class="info date"></div>
+    <div class="info day"></div>
+  </div>
+  <div class="dot"></div>
+  <div>
+    <div class="hour-hand"></div>
+    <div class="minute-hand"></div>
+    <div class="second-hand"></div>
+  </div>
+  <div>
+    <span class="h3">3</span>
+    <span class="h6">6</span>
+    <span class="h9">9</span>
+    <span class="h12">12</span>
+  </div>
+  <div class="diallines"></div>
+</div>
+</div>
   
   <!-- Kitap teslim et-al -->
 <div id="kitapAlVer" style="display: none; top: 59px; opacity: 1;" class="temelogeler" style="display: none;">Kitap teslim et/al</div>
 
   <!-- Öğrenci kayıt -->
-<div id="YeniOgrenci" style="display: none; top: 59px; opacity: 1;" class="temelogeler" style="display: none;">Yeni Öğrenci</div>
+<div id="YeniOgrenci" style="display: none; top: 59px; opacity: 1;" class="temelogeler" style="display: none;">
+	<div class="kutuphane-form-container">
+        <h2 class="kutuphane-form-title">Öğrenci Ekle</h2>
+
+        <div class="kutuphane-form-group">
+            <label for="ad" class="kutuphane-form-label">Ad:</label>
+            <input type="text" id="ad" name="ad" class="kutuphane-form-input" required>
+        </div>
+
+        <div class="kutuphane-form-group">
+            <label for="soyad" class="kutuphane-form-label">Soyad:</label>
+            <input type="text" id="soyad" name="soyad" class="kutuphane-form-input" required>
+        </div>
+
+        <div class="kutuphane-form-group">
+            <label for="ogrenciNo" class="kutuphane-form-label">Öğrenci Numarası:</label>
+            <input type="number" id="ogrenciNo" name="ogrenciNo" class="kutuphane-form-input" required>
+        </div>
+
+        <div class="kutuphane-form-group">
+			<label for="sinif" class="kutuphane-form-label">Sınıf:</label>
+			<select id="sinif" name="sinif" class="kutuphane-form-input" required>
+				<option value="" disabled selected>Seçiniz</option>
+				<option value="9">9</option>
+				<option value="10">10</option>
+				<option value="11">11</option>
+				<option value="12">12</option>
+			</select>
+		</div>
+		<div class="kutuphane-form-group">
+			<label for="sube" class="kutuphane-form-label">Şube:</label>
+			<select id="sube" name="sube" class="kutuphane-form-input" required>
+				<option value="" disabled selected>Seçiniz</option>
+				<option value="a">A</option>
+				<option value="b">B</option>
+				<option value="c">C</option>
+				<option value="d">D</option>
+				<option value="e">E</option>
+				<option value="f">F</option>
+				<option value="g">G</option>
+				<option value="ğ">Ğ</option>
+				<option value="h">H</option>
+				<option value="ı">I</option>
+				<option value="i">İ</option>
+				<option value="j">J</option>
+				<option value="k">K</option>
+				<option value="l">L</option>
+				<option value="m">M</option>
+				<option value="n">N</option>
+				<option value="o">O</option>
+				<option value="ö">Ö</option>
+				<option value="p">P</option>
+				<option value="r">R</option>
+				<option value="s">S</option>
+				<option value="ş">Ş</option>
+				<option value="t">T</option>
+				<option value="u">U</option>
+				<option value="ü">Ü</option>
+				<option value="v">V</option>
+				<option value="y">Y</option>
+				<option value="z">Z</option>
+			</select>
+		</div>
+		
+
+
+        <button type="submit" class="kutuphane-form-button">Öğrenci Ekle</button>
+    </div>
+</div>
 
   <!-- İstatistikler -->
 <div id="Istatistikler" style="display: none; top: 59px; opacity: 1;" class="temelogeler" style="display: none;">sasfasd</div>
@@ -33,7 +121,7 @@
 <div id="Ayarlar" style="display: none; top: 59px; opacity: 1;" class="temelogeler" style="display: none;">
 <h2>Kitaplar</h2>
 <div style="max-height: 43%; min-width: 65%; max-width: 100%; width: max-content; overflow-y: auto;">
-<table id="KitapTablo" class="tablo" style="border-right: 1px solid #ddd;">
+<table id="KitapTablo" class="tablo">
    <thead>
         <tr>
             <th>Kitap Adı</th>
@@ -62,61 +150,7 @@
 			<td>1</td>
 			<td>1</td>
 			<td>2</td>
-			<td>9789759038014</td>
-        </tr>
-        <tr>
-            <td>Var Mısın?</td>
-            <td>Kişisel Gelişim</td>
-            <td>Doğan Cüceloğlu</td>
-			<td>1</td>
-			<td>1</td>
-			<td>2</td>
-			<td>9789759038014</td>
-        </tr>
-        <tr>
-            <td>Var Mısın?</td>
-            <td>Kişisel Gelişim</td>
-            <td>Doğan Cüceloğlu</td>
-			<td>1</td>
-			<td>1</td>
-			<td>2</td>
-			<td>9789759038014</td>
-        </tr>
-        <tr>
-            <td>Var Mısın?</td>
-            <td>Kişisel Gelişim</td>
-            <td>Doğan Cüceloğlu</td>
-			<td>1</td>
-			<td>1</td>
-			<td>2</td>
-			<td>9789759038014</td>
-        </tr>
-		        <tr>
-            <td>Var Mısın?</td>
-            <td>Kişisel Gelişim</td>
-            <td>Doğan Cüceloğlu</td>
-			<td>1</td>
-			<td>1</td>
-			<td>2</td>
-			<td>9789759038014</td>
-        </tr>
-		        <tr>
-            <td>Var Mısın?</td>
-            <td>Kişisel Gelişim</td>
-            <td>Doğan Cüceloğlu</td>
-			<td>1</td>
-			<td>1</td>
-			<td>2</td>
-			<td>9789759038014</td>
-        </tr>
-		        <tr>
-            <td>Var Mısın?</td>
-            <td>Kişisel Gelişim</td>
-            <td>Doğan Cüceloğlu</td>
-			<td>1</td>
-			<td>1</td>
-			<td>2</td>
-			<td>9789759038014</td>
+			<td>9786257631600</td>
         </tr>
 	</tbody>
 </table>
@@ -129,7 +163,7 @@
 <table id="YazarTablo" class="tablo">
   <tbody>
    <tr><td>Reşat Nuri Gültekin</td></tr>
-   <tr><td>Doğan Cücelğlu</td></tr>
+   <tr><td>Doğan Cüceloğlu</td></tr>
    <tr><td>Namık Kemal</td></tr>
   </tbody>
 </table>
@@ -145,7 +179,7 @@ Yazar Ekle:
 <br><br>
 
 <h2>Varsayılan ödünç alma süresi:</h2>
-<input type="number" id="VarsayilanSure" name="VarsayilanSure" required>
+<input type="number" id="VarsayilanSure" oninput="OduncDegerinikontrolEt()" name="VarsayilanSure" required>
 <br><br>
 </div>
 
